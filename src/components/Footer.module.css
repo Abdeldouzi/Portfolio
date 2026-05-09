@@ -1,0 +1,53 @@
+.footer {
+  width: 100%;
+  padding: 20px 20px;
+  color: rgba(75, 58, 47, 0.8);
+  background: rgba(255, 255, 255, 0.82);
+  border-top: 1px solid rgba(115, 74, 54, 0.12);
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 24px;
+}
+
+.copy {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(75, 58, 47, 0.75);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.socialLink:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.socialLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
