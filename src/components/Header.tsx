@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 
 const links = [
@@ -16,14 +17,41 @@ const links = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.brand}>
-          Abdel-Karim Douzi
-        </Link>
-        <nav className={styles.nav} aria-label="Menu principal">
+        <div className={styles.topRow}>
+          <Link href="/" className={styles.brand}>
+            Abdel-Karim Douzi
+          </Link>
+          <button
+            type="button"
+            className={styles.menuButton}
+            aria-expanded={menuOpen}
+            aria-controls="nav-principal"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <span className={styles.srOnly}>
+              {menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            </span>
+            <span className={styles.menuIcon} aria-hidden>
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
+        <nav
+          id="nav-principal"
+          className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
+          aria-label="Menu principal"
+        >
           {links.map((link) => {
             const isActive = pathname === link.href;
 
@@ -32,6 +60,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`${styles.link} ${isActive ? styles.active : ""}`}
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>
