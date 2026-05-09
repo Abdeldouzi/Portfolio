@@ -83,10 +83,10 @@ export default function Home() {
         <article className={styles.card}>
           <h2>Projets</h2>
           <p>
-            Une sélection de projets représentatifs en JavaScript, PHP et
-            Next.js.
+            Une sélection de réalisations qui illustrent mon parcours et mes
+            compétences en développement.
           </p>
-          <Link href="/projets">Voir les projets</Link>
+          <Link href="/projets">Voir mes projets</Link>
         </article>
 
         <article className={styles.card}>
