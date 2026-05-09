@@ -64,7 +64,7 @@ export default function Home() {
 
         <article className={styles.card}>
           <h2>Formation</h2>
-          <p>Mon parcours scolaire de Bac à Master.</p>
+          <p>Mon parcours scolaire, du bac au master.</p>
           <Link href="/formation">Voir ma formation</Link>
         </article>
 

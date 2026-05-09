@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdel-Karim Douzi | Portfolio Fullstack",
+  title: "Abdel-Karim Douzi | Portfolio full stack",
   description:
     "Portfolio d'Abdel-Karim Douzi, développeur full stack. Projets web, compétences techniques, expérience et contact.",
 };

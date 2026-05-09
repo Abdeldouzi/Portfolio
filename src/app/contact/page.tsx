@@ -6,8 +6,8 @@ export default function ContactPage() {
       <section className={styles.card}>
         <h1 className={styles.title}>Contact</h1>
         <p className={styles.subtitle}>
-          Je suis actuellement à la recherche d'une alternance en tant que
-          développeur fullstack.
+          Je suis actuellement à la recherche d&apos;une alternance en tant que
+          développeur full stack.
         </p>
       </section>
 

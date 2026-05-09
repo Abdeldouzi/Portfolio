@@ -21,8 +21,8 @@ export default function GillaPage() {
           Le projet GILLA vise à créer un site où les membres du lycée peuvent
           signaler des problèmes de toutes sortes pour une prise en charge
           rapide, grâce à un système de gestion centralisée des tickets
-          d&apos;incidents avec une affectation automatique aux personnels de
-          maintenance correspondants.
+          d&apos;incidents avec une affectation automatique au personnel de
+          maintenance concerné.
         </p>
       </section>
 
@@ -30,7 +30,7 @@ export default function GillaPage() {
         <h2>ANALYSE DE L&apos;EXISTANT :</h2>
         <p className={styles.subtitle}>
           La gestion des incidents au lycée était désorganisée, car elle se
-          faisait par email ou oralement à divers personnels responsables, sans
+          faisait par courriel ou oralement auprès de différents responsables, sans
           centralisation. Cela rendait difficile la gestion efficace des
           incidents en fonction des ressources de maintenance disponibles et des
           expertises nécessaires.
@@ -48,7 +48,7 @@ export default function GillaPage() {
           </li>
           <li>
             Centraliser l&apos;enregistrement des incidents et leurs affectations
-            aux personnels de maintenance.
+            au personnel de maintenance.
           </li>
           <li>
             Accélérer la prise en charge des incidents et les opérations de
@@ -69,22 +69,22 @@ export default function GillaPage() {
         <ul className={styles.bullets}>
           <li>
             Le site d&apos;administration, avec le développement de la partie
-            backend.
+            back-end.
           </li>
           <li>
             Le site public incluant l&apos;accès réservé aux utilisateurs enregistrés
-            et le développement de la partie frontend.
+            et le développement de la partie front-end.
           </li>
           <li>Le développement de l&apos;application mobile Android.</li>
         </ul>
 
         <p className={styles.subtitle}>
-          II) Le développement de ce projet s&apos;est fait en suivant le Cycle en
+          II) Le développement de ce projet s&apos;est fait en suivant le cycle en
           V.
         </p>
         <img
           src="/gilla/02-cycle-v.png"
-          alt="Cycle en V"
+          alt="Schéma du cycle en V"
           className={styles.projectImage}
         />
 
@@ -126,13 +126,13 @@ export default function GillaPage() {
       <section className={styles.card}>
         <h2>CONTRIBUTIONS PERSONNELLES :</h2>
         <p className={styles.subtitle}>
-           Avant de commencer la phase de développement, nous avons réparti
-          les tâches et commencé à développer le front-end.
+          Avant de commencer la phase de développement, nous avons réparti les
+          tâches et commencé à développer le front-end.
         </p>
         <p className={styles.subtitle}>
-          J&apos;étais responsable de la vue détail de Prise en Charge. Après avoir
-          fini le back-end, je me suis occupé de la vue liste des affectations
-          dans le front-end.
+          J&apos;étais responsable de la vue détail de la prise en charge. Après
+          avoir terminé le back-end, je me suis occupé de la vue liste des
+          affectations dans le front-end.
         </p>
 
         <p className={styles.subtitle}>
@@ -140,17 +140,17 @@ export default function GillaPage() {
         </p>
         <img
           src="/gilla/04-repartition-backend.png"
-          alt="Répartition des tâches backend"
+          alt="Répartition des tâches back-end"
           className={styles.projectImage}
         />
 
         <p className={styles.subtitle}>
-          Voici à quoi ressemble la vue de détail de prise en charge dans le
+          Voici à quoi ressemble la vue de détail de la prise en charge dans le
           back-end :
         </p>
         <img
           src="/gilla/05-pec-backend.png"
-          alt="Vue détail prise en charge backend"
+          alt="Vue détail prise en charge côté back-end"
           className={styles.projectImage}
         />
 
@@ -181,7 +181,7 @@ export default function GillaPage() {
         </p>
         <img
           src="/gilla/08-repartition-frontend.png"
-          alt="Répartition des tâches frontend"
+          alt="Répartition des tâches front-end"
           className={styles.projectImage}
         />
 
@@ -237,17 +237,18 @@ export default function GillaPage() {
       <section className={styles.card}>
         <h2>PHASE DE TEST :</h2>
         <p className={styles.subtitle}>
-          Une fois le développement du back-end et front-end finis, on a
-          effectué des fiches de test afin de vérifier si tout était conforme.
+          Une fois le développement du back-end et du front-end terminés, nous
+          avons effectué des fiches de test afin de vérifier que tout était
+          conforme.
         </p>
         <img
           src="/gilla/17-test-backend.png"
-          alt="Fiche de test backend"
+          alt="Fiche de test back-end"
           className={styles.projectImage}
         />
         <img
           src="/gilla/18-test-frontend.png"
-          alt="Fiche de test frontend"
+          alt="Fiche de test front-end"
           className={styles.projectImage}
         />
       </section>
@@ -256,7 +257,8 @@ export default function GillaPage() {
         <h2>ANDROID :</h2>
         <p className={styles.subtitle}>
           Pour cette étape, nous étions tous chargés de la même mission qui
-          était de créer l&apos;application Android GILLA à l&apos;aide de Android Studio.
+          était de créer l&apos;application Android GILLA à l&apos;aide
+          d&apos;Android Studio.
         </p>
         <img
           src="/gilla/19-android-emulator.png"

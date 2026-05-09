@@ -22,7 +22,7 @@ const skills = {
   databases: [
     { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
     { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    { name: "PhpMyAdmin", img: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/phpmyadmin.svg" },
+    { name: "phpMyAdmin", img: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/phpmyadmin.svg" },
   ],
   tools: [
     { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
@@ -44,7 +44,7 @@ export default function CompetencesPage() {
     <div className={styles.wrapper}>
       <section className={styles.card}>
         <h1 className={styles.title}>Compétences</h1>
-        <p className={styles.subtitle}>Ma stack technique et mes outils</p>
+        <p className={styles.subtitle}>Ma stack technique et mes outils.</p>
       </section>
 
       <section className={styles.card}>
@@ -61,7 +61,7 @@ export default function CompetencesPage() {
             </div>
           </article>
           <article className={styles.item}>
-            <h3>Frameworks & Bibliothèques</h3>
+            <h3>Frameworks et bibliothèques</h3>
             <div className={styles.skillsGrid}>
               {skills.frameworks.map((skill) => (
                 <div key={skill.name} className={styles.skill}>

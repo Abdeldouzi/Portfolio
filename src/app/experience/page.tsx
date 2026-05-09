@@ -6,7 +6,7 @@ export default function ExperiencePage() {
       <section className={styles.card}>
         <h1 className={styles.title}>Expérience professionnelle</h1>
         <p className={styles.subtitle}>
-          Mes expériences en entreprise sur des projets web fullstack.
+          Mes expériences en entreprise sur des projets web full stack.
         </p>
       </section>
 
@@ -17,20 +17,20 @@ export default function ExperiencePage() {
             <p className={styles.meta}>Mai 2025 - Juin 2025</p>
             <ul className={styles.bullets}>
               <li>
-                Développement fullstack d'une plateforme éducative pour le
+                Développement full stack d&apos;une plateforme éducative pour le
                 système scolaire sénégalais (Java/Spring Boot, React).
               </li>
               <li>
-                Conception du backend: gestion des élèves, enseignants, classes
-                et années scolaires via API REST.
+                Conception du back-end : gestion des élèves, enseignants, classes
+                et années scolaires via des API REST.
               </li>
               <li>
-                Modélisation UML des fonctionnalités avec cas d'utilisation
+                Modélisation UML des fonctionnalités avec cas d&apos;utilisation
                 admin, enseignant et élève.
               </li>
               <li>
-                Intégration de fonctionnalités d'administration (statistiques,
-                établissements, niveaux d'étude) côté frontend.
+                Intégration de fonctionnalités d&apos;administration (statistiques,
+                établissements, niveaux d&apos;étude) côté front-end.
               </li>
               <li>
                 Mise en place de la base SQL et persistance des données avec
@@ -44,15 +44,15 @@ export default function ExperiencePage() {
             <p className={styles.meta}>Déc. 2023 - Fév. 2024</p>
             <ul className={styles.bullets}>
               <li>
-                Conception et personnalisation d'un site WordPress (structure,
+                Conception et personnalisation d&apos;un site WordPress (structure,
                 design, intégration de contenu).
               </li>
               <li>
-                Développement d'un site dynamique HTML/CSS/PHP connecté à une
+                Développement d&apos;un site dynamique HTML/CSS/PHP connecté à une
                 base SQL.
               </li>
               <li>
-                Implémentation de fonctionnalités d'inscription, connexion,
+                Implémentation de fonctionnalités d&apos;inscription, connexion,
                 messagerie interne et demande de devis.
               </li>
             </ul>
@@ -63,7 +63,7 @@ export default function ExperiencePage() {
             <p className={styles.meta}>Mai 2023 - Juin 2023</p>
             <ul className={styles.bullets}>
               <li>
-                Maintenance corrective et évolutive d'un site e-commerce sous
+                Maintenance corrective et évolutive d&apos;un site e-commerce sous
                 PrestaShop.
               </li>
               <li>

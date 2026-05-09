@@ -11,7 +11,7 @@ export default function FormationPage() {
       <section className={styles.card}>
         <div className={styles.list}>
           <article className={styles.item}>
-            <h3>Master Expert Lead Développeur Fullstack - ITIC Paris</h3>
+            <h3>Master Expert Lead Développeur Full Stack - ITIC Paris</h3>
             <p className={styles.meta}>Sept. 2026 - Sept. 2028</p>
           </article>
           <article className={styles.item}>
