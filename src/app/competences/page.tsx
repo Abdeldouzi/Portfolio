@@ -1,5 +1,8 @@
-import styles from "../inner-page.module.css";
+"use client";
+
 import Image from "next/image";
+import { useLocale } from "../../context/LocaleContext";
+import styles from "../inner-page.module.css";
 
 const skills = {
   languages: [
@@ -40,17 +43,19 @@ const skills = {
 };
 
 export default function CompetencesPage() {
+  const { t } = useLocale();
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.card}>
-        <h1 className={styles.title}>Compétences</h1>
-        <p className={styles.subtitle}>Ma stack technique et mes outils.</p>
+        <h1 className={styles.title}>{t("skills.title")}</h1>
+        <p className={styles.subtitle}>{t("skills.subtitle")}</p>
       </section>
 
       <section className={styles.card}>
         <div className={styles.list}>
           <article className={styles.item}>
-            <h3>Langages</h3>
+            <h3>{t("skills.languages")}</h3>
             <div className={styles.skillsGrid}>
               {skills.languages.map((skill) => (
                 <div key={skill.name} className={styles.skill}>
@@ -61,7 +66,7 @@ export default function CompetencesPage() {
             </div>
           </article>
           <article className={styles.item}>
-            <h3>Frameworks et bibliothèques</h3>
+            <h3>{t("skills.frameworks")}</h3>
             <div className={styles.skillsGrid}>
               {skills.frameworks.map((skill) => (
                 <div key={skill.name} className={styles.skill}>
@@ -72,7 +77,7 @@ export default function CompetencesPage() {
             </div>
           </article>
           <article className={styles.item}>
-            <h3>Bases de données</h3>
+            <h3>{t("skills.databases")}</h3>
             <div className={styles.skillsGrid}>
               {skills.databases.map((skill) => (
                 <div key={skill.name} className={styles.skill}>
@@ -83,7 +88,7 @@ export default function CompetencesPage() {
             </div>
           </article>
           <article className={styles.item}>
-            <h3>Outils & DevOps</h3>
+            <h3>{t("skills.tools")}</h3>
             <div className={styles.skillsGrid}>
               {skills.tools.map((skill) => (
                 <div key={skill.name} className={styles.skill}>
@@ -94,7 +99,7 @@ export default function CompetencesPage() {
             </div>
           </article>
           <article className={styles.item}>
-            <h3>CMS & Design</h3>
+            <h3>{t("skills.cms")}</h3>
             <div className={styles.skillsGrid}>
               {skills.cms.map((skill) => (
                 <div key={skill.name} className={styles.skill}>

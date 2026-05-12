@@ -5,26 +5,27 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(115, 74, 54, 0.14);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 26px;
   padding: 26px;
   transition: all 0.3s ease;
-  box-shadow: 0 18px 60px rgba(93, 60, 43, 0.06);
+  box-shadow: 0 18px 60px var(--card-shadow);
 }
 
 .title {
   font-size: clamp(1.8rem, 4vw, 2.3rem);
   margin-bottom: 8px;
+  color: var(--title-text);
 }
 
 .subtitleTitle {
   font-size: 0.75em;
-  color: #7a5f4c;
+  color: var(--subtitle-title);
 }
 
 .subtitle {
-  color: #6d5448;
+  color: var(--subtitle-text);
   line-height: 1.75;
 }
 
@@ -33,15 +34,20 @@
   margin-top: 12px;
   padding: 10px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(115, 74, 54, 0.2);
-  color: #8c5b44;
+  border: 1px solid var(--download-border);
+  color: var(--link-accent);
   font-weight: 600;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--download-bg);
 }
 
 .card h2 {
   margin-bottom: 10px;
+  color: var(--title-text);
+}
+
+.card h3 {
+  color: var(--title-text);
 }
 
 .projectImage {
@@ -51,7 +57,7 @@
   display: block;
   margin: 18px auto 28px;
   border-radius: 12px;
-  border: 1px solid rgba(115, 74, 54, 0.15);
+  border: 1px solid var(--image-border);
 }
 
 .projectLogoOnly {
@@ -69,7 +75,7 @@
   display: block;
   margin: 14px auto 24px;
   border-radius: 12px;
-  border: 1px solid rgba(115, 74, 54, 0.15);
+  border: 1px solid var(--image-border);
 }
 
 .list {
@@ -79,8 +85,8 @@
 }
 
 .item {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(115, 74, 54, 0.12);
+  background: var(--card-bg-soft);
+  border: 1px solid var(--card-border-soft);
   border-radius: 18px;
   padding: 18px;
   transition: all 0.3s ease;
@@ -109,6 +115,7 @@
   border-radius: 22px;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .projectCardTitle {
@@ -131,30 +138,30 @@
 }
 
 .item p {
-  color: #6d5448;
+  color: var(--subtitle-text);
 }
 
 .item span {
-  color: #8c5b44;
+  color: var(--link-accent);
   font-weight: 600;
 }
 
 .item a {
   display: inline-block;
   margin-top: 8px;
-  color: #8c5b44;
+  color: var(--link-accent);
   font-weight: 600;
 }
 
 .meta {
-  color: #94a3b8;
+  color: var(--meta-text);
   font-size: 0.92rem;
   margin-bottom: 8px;
 }
 
 .bullets {
   margin-left: 18px;
-  color: #6d5448;
+  color: var(--subtitle-text);
   display: grid;
   gap: 6px;
 }
@@ -173,6 +180,7 @@
   padding: 8px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .skill:hover {
@@ -191,19 +199,155 @@
 
 .skill span {
   font-size: 0.85rem;
-  color: #dbeadb;
+  color: var(--subtitle-text);
   text-align: center;
 }
+
+.contactLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contactLinkHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.contactLinkHead h3 {
+  margin-bottom: 0;
+}
+
+.contactLinkIcon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--accent);
+  align-items: center;
+  justify-content: center;
+}
+
+.contactLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 18px;
+}
+
+.contactLinkCompact.contactLink:focus-visible {
+  border-radius: 14px;
+}
+
+.contactSplit {
+  display: grid;
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 4px;
+}
+
+.contactCardsColumn {
+  min-width: 0;
+}
+
+.contactCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactLinkCompact {
+  padding: 11px 13px;
+  border-radius: 14px;
+}
+
+.contactLinkCompact .contactLinkHead {
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.contactLinkCompact .contactLinkHead h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.contactLinkCompact p {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.contactMapColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-height: 260px;
+}
+
+.contactMapFrame {
+  flex: 1;
+  min-height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--map-frame-border);
+  box-shadow: 0 8px 28px var(--map-shadow);
+}
+
+.contactMap {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border: 0;
+}
+
+.contactMapCaption {
+  font-size: 0.9rem;
+  color: var(--subtitle-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.contactMapCaption strong {
+  color: var(--caption-strong);
+}
+
+@media (min-width: 820px) {
+  .contactSplit {
+    grid-template-columns: minmax(210px, 280px) 1fr;
+    align-items: start;
+  }
+
+  .contactMapFrame {
+    min-height: 300px;
+  }
+
+  .contactMap {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 819px) {
+  .contactMapColumn {
+    order: 2;
+  }
+
+  .contactCardsColumn {
+    order: 1;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     transform: translateY(-2px);
-    border-color: rgba(115, 74, 54, 0.18);
-    box-shadow: 0 16px 40px rgba(93, 60, 43, 0.12);
+    border-color: var(--accent-soft);
+    box-shadow: 0 16px 40px var(--card-shadow-hover);
   }
 
   .item:hover {
     transform: translateY(-1px);
     border-color: var(--accent);
-    box-shadow: 0 2px 10px rgba(141, 228, 177, 0.14);
+    box-shadow: 0 2px 12px var(--card-shadow);
   }
 }

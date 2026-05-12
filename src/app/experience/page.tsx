@@ -1,78 +1,71 @@
+"use client";
+
+import { RichText } from "../../components/RichText";
+import { useLocale } from "../../context/LocaleContext";
 import styles from "../inner-page.module.css";
 
 export default function ExperiencePage() {
+  const { t } = useLocale();
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.card}>
-        <h1 className={styles.title}>Expérience professionnelle</h1>
-        <p className={styles.subtitle}>
-          Mes expériences en entreprise sur des projets web full stack.
-        </p>
+        <h1 className={styles.title}>{t("experience.title")}</h1>
+        <p className={styles.subtitle}>{t("experience.subtitle")}</p>
       </section>
 
       <section className={styles.card}>
         <div className={styles.list}>
           <article className={styles.item}>
-            <h3>Développeur Web - Stage - Dadi Tech</h3>
-            <p className={styles.meta}>Mai 2025 - Juin 2025</p>
+            <h3>{t("experience.dadiTitle")}</h3>
+            <p className={styles.meta}>{t("experience.dadiDates")}</p>
             <ul className={styles.bullets}>
               <li>
-                Développement full stack d&apos;une plateforme éducative pour le
-                système scolaire sénégalais (Java/Spring Boot, React).
+                <RichText text={t("experience.dadi1")} />
               </li>
               <li>
-                Conception du back-end : gestion des élèves, enseignants, classes
-                et années scolaires via des API REST.
+                <RichText text={t("experience.dadi2")} />
               </li>
               <li>
-                Modélisation UML des fonctionnalités avec cas d&apos;utilisation
-                admin, enseignant et élève.
+                <RichText text={t("experience.dadi3")} />
               </li>
               <li>
-                Intégration de fonctionnalités d&apos;administration (statistiques,
-                établissements, niveaux d&apos;étude) côté front-end.
+                <RichText text={t("experience.dadi4")} />
               </li>
               <li>
-                Mise en place de la base SQL et persistance des données avec
-                Spring Data JPA.
+                <RichText text={t("experience.dadi5")} />
               </li>
             </ul>
           </article>
 
           <article className={styles.item}>
-            <h3>Développeur Web - Stage - EasyFormers</h3>
-            <p className={styles.meta}>Déc. 2023 - Fév. 2024</p>
+            <h3>{t("experience.easyTitle")}</h3>
+            <p className={styles.meta}>{t("experience.easyDates")}</p>
             <ul className={styles.bullets}>
               <li>
-                Conception et personnalisation d&apos;un site WordPress (structure,
-                design, intégration de contenu).
+                <RichText text={t("experience.easy1")} />
               </li>
               <li>
-                Développement d&apos;un site dynamique HTML/CSS/PHP connecté à une
-                base SQL.
+                <RichText text={t("experience.easy2")} />
               </li>
               <li>
-                Implémentation de fonctionnalités d&apos;inscription, connexion,
-                messagerie interne et demande de devis.
+                <RichText text={t("experience.easy3")} />
               </li>
             </ul>
           </article>
 
           <article className={styles.item}>
-            <h3>Développeur Web - Stage - Bois De Chauff 95</h3>
-            <p className={styles.meta}>Mai 2023 - Juin 2023</p>
+            <h3>{t("experience.boisTitle")}</h3>
+            <p className={styles.meta}>{t("experience.boisDates")}</p>
             <ul className={styles.bullets}>
               <li>
-                Maintenance corrective et évolutive d&apos;un site e-commerce sous
-                PrestaShop.
+                <RichText text={t("experience.bois1")} />
               </li>
               <li>
-                Mise à jour des fiches produits, catégories et paramètres de
-                livraison via le back-office.
+                <RichText text={t("experience.bois2")} />
               </li>
               <li>
-                Requêtes SQL directes (MySQL) pour corriger des anomalies de
-                données.
+                <RichText text={t("experience.bois3")} />
               </li>
             </ul>
           </article>

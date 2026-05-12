@@ -1,9 +1,10 @@
 .footer {
   width: 100%;
   padding: 20px 20px;
-  color: rgba(75, 58, 47, 0.8);
-  background: rgba(255, 255, 255, 0.82);
-  border-top: 1px solid rgba(115, 74, 54, 0.12);
+  color: var(--footer-text);
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .inner {
@@ -31,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(75, 58, 47, 0.75);
+  color: var(--footer-icon);
   transition: color 0.15s ease, transform 0.15s ease;
 }
 

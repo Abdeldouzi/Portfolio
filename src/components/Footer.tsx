@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocale } from "../context/LocaleContext";
 import styles from "./Footer.module.css";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/abdel-karim-douzi/";
@@ -38,17 +41,19 @@ function GitHubIcon() {
 }
 
 export default function Footer() {
+  const { t } = useLocale();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <p className={styles.copy}>© 2026 Abdel-Karim Douzi</p>
-        <div className={styles.socials} role="group" aria-label="Réseaux sociaux">
+        <div className={styles.socials} role="group" aria-label={t("footer.social")}>
           <a
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
-            aria-label="Profil LinkedIn (ouvre dans un nouvel onglet)"
+            aria-label={t("footer.linkedinAria")}
           >
             <LinkedInIcon />
           </a>
@@ -57,7 +62,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
-            aria-label="Profil GitHub (ouvre dans un nouvel onglet)"
+            aria-label={t("footer.githubAria")}
           >
             <GitHubIcon />
           </a>

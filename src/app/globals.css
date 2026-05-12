@@ -6,21 +6,121 @@
   --border: rgba(115, 74, 54, 0.16);
   --accent: #8c5b44;
   --accent-soft: #c5a38b;
+
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --header-border: rgba(115, 74, 54, 0.12);
+  --header-divider: rgba(115, 74, 54, 0.1);
+  --header-control-bg: rgba(255, 255, 255, 0.95);
+  --header-control-bg-hover: rgba(250, 244, 238, 0.98);
+  --header-control-border: rgba(140, 91, 68, 0.28);
+  --header-control-border-hover: rgba(140, 91, 68, 0.4);
+  --brand-text: #4b3a2f;
+  --nav-link: #5f473d;
+  --nav-active-border: rgba(140, 91, 68, 0.24);
+  --nav-active-bg: rgba(245, 239, 230, 0.7);
+  --nav-hover-bg: rgba(250, 244, 238, 0.95);
+
+  --footer-bg: rgba(255, 255, 255, 0.82);
+  --footer-border: rgba(115, 74, 54, 0.12);
+  --footer-text: rgba(75, 58, 47, 0.8);
+  --footer-icon: rgba(75, 58, 47, 0.75);
+
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-bg-soft: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(115, 74, 54, 0.14);
+  --card-border-soft: rgba(115, 74, 54, 0.12);
+  --card-shadow: rgba(93, 60, 43, 0.06);
+  --card-shadow-hover: rgba(93, 60, 43, 0.12);
+  --title-text: #3f2b24;
+  --subtitle-text: #6d5448;
+  --subtitle-title: #7a5f4c;
+  --meta-text: #94a3b8;
+  --link-accent: #8c5b44;
+  --download-bg: rgba(255, 255, 255, 0.9);
+  --download-border: rgba(115, 74, 54, 0.2);
+  --image-border: rgba(115, 74, 54, 0.15);
+  --map-frame-border: rgba(115, 74, 54, 0.14);
+  --map-shadow: rgba(93, 60, 43, 0.08);
+  --caption-strong: #4b3a2f;
+
+  --dropdown-bg: rgba(255, 255, 255, 0.98);
+  --dropdown-shadow: 0 12px 40px rgba(93, 60, 43, 0.15);
+  --dropdown-item-hover: rgba(245, 239, 230, 0.85);
+  --dropdown-item-active: rgba(245, 239, 230, 0.95);
+
+  --home-title: #3f2b24;
+  --home-intro-heading: #3f2b24;
+  --home-intro-text: #6d5448;
+  --home-intro-strong: #4b3a2f;
+  --home-btn-primary-start: #d9c3b1;
+  --home-btn-primary-end: #c7ac95;
+  --home-btn-text: #4b3a2f;
+  --home-btn-secondary-bg: rgba(255, 255, 255, 0.92);
+  --home-btn-border: rgba(115, 74, 54, 0.18);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f5efe6;
-    --foreground: #4b3a2f;
-    --surface: rgba(255, 255, 255, 0.85);
-    --surface-strong: rgba(255, 255, 255, 0.98);
-    --border: rgba(115, 74, 54, 0.16);
-    --accent: #8c5b44;
-    --accent-soft: #c5a38b;
-  }
+html.dark {
+  color-scheme: dark;
+  --background: #1a1715;
+  --foreground: #f0ebe4;
+  --surface: rgba(42, 38, 35, 0.9);
+  --surface-strong: rgba(48, 44, 40, 0.98);
+  --border: rgba(220, 200, 180, 0.12);
+  --accent: #d4a574;
+  --accent-soft: #8b6b52;
+
+  --header-bg: rgba(28, 25, 23, 0.92);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --header-divider: rgba(255, 255, 255, 0.08);
+  --header-control-bg: rgba(40, 36, 33, 0.95);
+  --header-control-bg-hover: rgba(52, 46, 42, 0.98);
+  --header-control-border: rgba(212, 165, 116, 0.35);
+  --header-control-border-hover: rgba(212, 165, 116, 0.55);
+  --brand-text: #f0ebe4;
+  --nav-link: #d8cfc4;
+  --nav-active-border: rgba(212, 165, 116, 0.45);
+  --nav-active-bg: rgba(212, 165, 116, 0.12);
+  --nav-hover-bg: rgba(255, 255, 255, 0.06);
+
+  --footer-bg: rgba(24, 22, 20, 0.92);
+  --footer-border: rgba(255, 255, 255, 0.08);
+  --footer-text: rgba(235, 228, 218, 0.82);
+  --footer-icon: rgba(235, 228, 218, 0.7);
+
+  --card-bg: rgba(38, 34, 31, 0.94);
+  --card-bg-soft: rgba(34, 31, 28, 0.92);
+  --card-border: rgba(255, 230, 210, 0.1);
+  --card-border-soft: rgba(255, 230, 210, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: rgba(0, 0, 0, 0.35);
+  --title-text: #f5efe8;
+  --subtitle-text: #c9bbae;
+  --subtitle-title: #b5a69a;
+  --meta-text: #9ca3af;
+  --link-accent: #d4a574;
+  --download-bg: rgba(48, 44, 40, 0.95);
+  --download-border: rgba(212, 165, 116, 0.25);
+  --image-border: rgba(255, 255, 255, 0.1);
+  --map-frame-border: rgba(255, 255, 255, 0.1);
+  --map-shadow: rgba(0, 0, 0, 0.3);
+  --caption-strong: #f0ebe4;
+
+  --dropdown-bg: rgba(40, 36, 33, 0.98);
+  --dropdown-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --dropdown-item-hover: rgba(255, 255, 255, 0.06);
+  --dropdown-item-active: rgba(212, 165, 116, 0.15);
+
+  --home-title: #f5efe8;
+  --home-intro-heading: #f0ebe4;
+  --home-intro-text: #c9bbae;
+  --home-intro-strong: #f0ebe4;
+  --home-btn-primary-start: #6b5344;
+  --home-btn-primary-end: #5a4538;
+  --home-btn-text: #f5efe8;
+  --home-btn-secondary-bg: rgba(48, 44, 40, 0.95);
+  --home-btn-border: rgba(212, 165, 116, 0.25);
 }
 
-/* min-height (pas height: 100%) pour que la page puisse dépasser l’écran et scroller sur mobile */
 html {
   min-height: 100%;
   overflow-x: hidden;
@@ -40,6 +140,7 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 * {
@@ -54,7 +155,6 @@ a {
 }
 
 .app-content {
-  /* 1 0 auto = pied de page en bas si la page est courte, sans bloquer le scroll si le contenu est long (Safari / flex) */
   flex: 1 0 auto;
   width: min(1000px, 100%);
   margin: 0 auto;
@@ -64,11 +164,5 @@ a {
 @media (max-width: 768px) {
   .app-content {
     padding: 20px 16px 32px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
   }
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AppProviders } from "../components/AppProviders";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "./globals.css";
@@ -26,11 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="fr"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <body>
-        <Header />
-        <main className="app-content">{children}</main>
-        <Footer />
+        <AppProviders>
+          <Header />
+          <main className="app-content">{children}</main>
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "../../context/LocaleContext";
 import styles from "../inner-page.module.css";
 
 const projects = [
@@ -11,13 +14,13 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  const { t } = useLocale();
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.card}>
-        <h1 className={styles.title}>Projets</h1>
-        <p className={styles.subtitle}>
-          Sélection de mes projets les plus représentatifs.
-        </p>
+        <h1 className={styles.title}>{t("projects.title")}</h1>
+        <p className={styles.subtitle}>{t("projects.subtitle")}</p>
       </section>
 
       <section className={styles.card}>
@@ -33,7 +36,7 @@ export default function ProjectsPage() {
                 {project.logo ? (
                   <img
                     src={project.logo}
-                    alt={`Logo ${project.title}`}
+                    alt={`${t("projects.logoAlt")} ${project.title}`}
                     className={styles.projectCardThumb}
                   />
                 ) : null}
