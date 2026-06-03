@@ -7,6 +7,29 @@
   z-index: 101;
 }
 
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--header-control-border);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.themeToggle:hover {
+  border-color: var(--accent);
+  background: var(--header-control-bg-hover);
+}
+
+.themeIcon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .button {
   display: flex;
   align-items: center;
@@ -47,6 +70,15 @@
     top: 12px;
     right: 12px;
     gap: 4px;
+  }
+
+  .themeToggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .themeIcon {
+    font-size: 1rem;
   }
 
   .button {
