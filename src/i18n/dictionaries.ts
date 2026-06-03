@@ -222,6 +222,21 @@ const fr = {
     meansTitle: "LES MOYENS UTILISÉS :",
     altResources: "Ressources numériques du projet",
   },
+  game: {
+    title: "Mini défi",
+    subtitle:
+      "**10** mots proposés — sélectionne ceux de la bonne catégorie (minimum **3** bonnes réponses sur 5 cocher).",
+    backend: "Clique sur les mots liés au **back-end**",
+    database: "Clique sur les mots liés aux **bases de données**",
+    frontend: "Clique sur les mots liés au **front-end**",
+    validate: "Valider",
+    wellDone: "Bien joué !",
+    success: "Tu as trouvé {n} bonnes réponses. Ouverture du portfolio…",
+    fail: "Il te faut au moins 3 bonnes réponses. Réessaie.",
+    scoreLine: "{n} bonne(s) · minimum {min}",
+    selected: "sélectionné",
+    selectedPlural: "sélectionnés",
+  },
   blog: {
     title: "Blog",
   },
@@ -444,6 +459,21 @@ const en = {
     altCommits: "Commit history",
     meansTitle: "RESOURCES USED:",
     altResources: "Project digital resources",
+  },
+  game: {
+    title: "Quick challenge",
+    subtitle:
+      "**10** words shown — pick those in the right category (at least **3** correct on 5 selected).",
+    backend: "Click the words related to the **back-end**",
+    database: "Click the words related to **databases**",
+    frontend: "Click the words related to the **front-end**",
+    validate: "Submit",
+    wellDone: "Well done!",
+    success: "You got {n} correct. Opening the portfolio…",
+    fail: "You need at least 3 correct answers. Try again.",
+    scoreLine: "{n} correct · minimum {min}",
+    selected: "selected",
+    selectedPlural: "selected",
   },
   blog: {
     title: "Blog",
