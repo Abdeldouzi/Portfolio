@@ -15,8 +15,8 @@ export default function ExperiencePage() {
       date: t("experience.dadiDates"),
       description:
         locale === "fr"
-          ? "Développement full stack d'une plateforme éducative pour le système scolaire sénégalais utilisant Java, Spring Boot et React."
-          : "Full stack development of an educational platform for the Senegalese education system using Java, Spring Boot and React.",
+          ? `• ${t("experience.dadi1")}\n• ${t("experience.dadi2")}\n• ${t("experience.dadi3")}\n• ${t("experience.dadi4")}\n• ${t("experience.dadi5")}`
+          : "• Full stack development of an educational platform for the Senegalese education system (Java, Spring Boot, React).\n• Back-end design: student, teacher, class and school year management via REST APIs.\n• UML modeling of features with admin, teacher and student use cases.\n• Integration of administration features (statistics, establishments, study levels) on front-end.\n• SQL database setup and data persistence with Spring Data JPA.",
       type: "experience",
     },
     {
@@ -26,8 +26,8 @@ export default function ExperiencePage() {
       date: t("experience.easyDates"),
       description:
         locale === "fr"
-          ? "Conception de site WordPress et développement d'un site dynamique HTML/CSS/PHP avec base de données SQL."
-          : "WordPress site design and development of a dynamic HTML/CSS/PHP website with SQL database.",
+          ? `• ${t("experience.easy1")}\n• ${t("experience.easy2")}\n• ${t("experience.easy3")}`
+          : "• Design and customization of a WordPress site (structure, design, content integration).\n• Development of a dynamic HTML/CSS/PHP site connected to a SQL database.\n• Implementation of registration, login, internal messaging and quote request features.",
       type: "experience",
     },
     {
@@ -37,8 +37,8 @@ export default function ExperiencePage() {
       date: t("experience.boisDates"),
       description:
         locale === "fr"
-          ? "Maintenance corrective et évolutive d'un site e-commerce PrestaShop avec gestion des produits et requêtes SQL."
-          : "Corrective and evolutionary maintenance of a PrestaShop e-commerce site with product management and SQL queries.",
+          ? `• ${t("experience.bois1")}\n• ${t("experience.bois2")}\n• ${t("experience.bois3")}`
+          : "• Corrective and evolutionary maintenance of a PrestaShop e-commerce site.\n• Product sheet updates, categories and delivery parameters via back-office.\n• Direct SQL queries (MySQL) to fix data anomalies.",
       type: "experience",
     },
   ];
