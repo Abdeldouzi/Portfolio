@@ -116,11 +116,15 @@
 }
 
 .description {
-  margin: 12px 0 0;
+  margin: 8px 0;
   font-size: 0.9rem;
   color: var(--subtitle-text);
   line-height: 1.6;
   animation: slideDown 0.3s ease;
+}
+
+.descriptionWrapper {
+  margin-top: 12px;
 }
 
 .expandBtn {

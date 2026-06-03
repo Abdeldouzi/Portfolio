@@ -45,7 +45,13 @@ export function Timeline({ items }: TimelineProps) {
                 <p className={styles.subtitle}>{item.subtitle}</p>
 
                 {selectedId === item.id && item.description && (
-                  <p className={styles.description}>{item.description}</p>
+                  <div className={styles.descriptionWrapper}>
+                    {item.description.split('\n').map((line, idx) => (
+                      <p key={idx} className={styles.description}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
                 )}
 
                 <button
