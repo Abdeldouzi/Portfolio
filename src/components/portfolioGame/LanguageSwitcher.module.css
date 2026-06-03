@@ -33,16 +33,19 @@
 .button {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  justify-content: center;
+  gap: 0;
+  padding: 8px 10px;
   border-radius: 8px;
   border: 1px solid var(--header-control-border);
   background: var(--card-bg);
   color: var(--brand-text);
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
+  min-width: 44px;
+  height: 40px;
 }
 
 .button:hover {

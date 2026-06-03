@@ -225,7 +225,7 @@ const fr = {
   game: {
     title: "Mini défi",
     subtitle:
-      "**10** mots proposés — sélectionne ceux de la bonne catégorie (minimum **3** bonnes réponses sur 5 cocher).",
+      "**10** mots proposés — sélectionne ceux de la bonne catégorie (minimum **3** bonnes réponses sur 5 cochées).",
     backend: "Clique sur les mots liés au **back-end**",
     database: "Clique sur les mots liés aux **bases de données**",
     frontend: "Clique sur les mots liés au **front-end**",
