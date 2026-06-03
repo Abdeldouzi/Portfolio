@@ -52,6 +52,7 @@ export function Timeline({ items }: TimelineProps) {
                   className={styles.expandBtn}
                   onClick={() => setSelectedId(selectedId === item.id ? null : item.id)}
                   aria-expanded={selectedId === item.id}
+                  style={{ visibility: item.description ? "visible" : "hidden" }}
                 >
                   {selectedId === item.id ? "−" : "+"}
                 </button>
