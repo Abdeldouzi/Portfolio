@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { RichText } from "../RichText";
 import { useLocale } from "../../context/LocaleContext";
+import { useTheme } from "../../context/ThemeContext";
 import {
   countCorrectSelections,
   createGameRound,
@@ -10,22 +11,26 @@ import {
   type GameCategory,
   type GameWord,
 } from "./words";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./PortfolioGate.module.css";
 
 const STORAGE_KEY = "portfolio-challenge-passed";
 const WIN_DELAY_MS = 1600;
+const REQUIRED_SELECTIONS = 5;
 
 type Round = { category: GameCategory; words: GameWord[] };
 type Phase = "play" | "won";
+type Feedback = "err" | "notEnough" | null;
 
 export function PortfolioGate({ children }: { children: React.ReactNode }) {
   const { t, locale } = useLocale();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [passed, setPassed] = useState(false);
   const [round, setRound] = useState<Round | null>(null);
   const [phase, setPhase] = useState<Phase>("play");
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [feedback, setFeedback] = useState<"err" | null>(null);
+  const [feedback, setFeedback] = useState<Feedback>(null);
   const [lastScore, setLastScore] = useState(0);
 
   useEffect(() => {
@@ -57,16 +62,15 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
     return map[round.category];
   }, [round]);
 
-  const correctSelected = round
-    ? countCorrectSelections(round, selected)
-    : 0;
-
   const toggleWord = (id: string) => {
     if (phase === "won") return;
     setSelected((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else if (next.size < REQUIRED_SELECTIONS) {
+        next.add(id);
+      }
       return next;
     });
     setFeedback(null);
@@ -74,6 +78,12 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
 
   const validate = () => {
     if (!round || phase === "won") return;
+
+    if (selected.size < REQUIRED_SELECTIONS) {
+      setFeedback("notEnough");
+      return;
+    }
+
     const score = countCorrectSelections(round, selected);
     setLastScore(score);
 
@@ -101,8 +111,8 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
     selected.size === 1 ? t("game.selected") : t("game.selectedPlural");
 
   const scoreLine = t("game.scoreLine")
-    .replace("{n}", String(correctSelected))
-    .replace("{min}", String(PASS_SCORE));
+    .replace("{n}", String(selected.size))
+    .replace("{min}", String(REQUIRED_SELECTIONS));
 
   return (
     <>
@@ -112,6 +122,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
         aria-modal="true"
         aria-labelledby="game-title"
       >
+        <LanguageSwitcher />
         <div className={`${styles.panel} ${phase === "won" ? styles.panelWon : ""}`}>
           {phase === "won" ? (
             <div className={styles.winScreen}>
@@ -146,9 +157,13 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                     ))}
                   </div>
                   <p className={styles.meta}>
-                    {selected.size} {selectedLabel} · {scoreLine}
+                    {selected.size}/{REQUIRED_SELECTIONS} {selectedLabel}
                   </p>
-                  {feedback === "err" ? (
+                  {feedback === "notEnough" ? (
+                    <p className={`${styles.feedback} ${styles.feedbackErr}`}>
+                      {t("game.needMore")}
+                    </p>
+                  ) : feedback === "err" ? (
                     <p className={`${styles.feedback} ${styles.feedbackErr}`}>
                       {t("game.fail")}
                     </p>
@@ -157,7 +172,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                     <button
                       type="button"
                       className={styles.validate}
-                      disabled={selected.size === 0}
+                      disabled={selected.size !== REQUIRED_SELECTIONS}
                       onClick={validate}
                     >
                       {t("game.validate")}
