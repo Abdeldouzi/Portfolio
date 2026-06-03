@@ -1,10 +1,58 @@
 "use client";
 
 import { useLocale } from "../../context/LocaleContext";
+import { Timeline, type TimelineItem } from "../../components/Timeline/Timeline";
 import styles from "../inner-page.module.css";
 
 export default function FormationPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+
+  const timelineItems: TimelineItem[] = [
+    {
+      id: "m1",
+      title: t("formation.m1"),
+      subtitle: locale === "fr" ? "ITIC Paris" : "ITIC Paris",
+      date: t("formation.m1dates"),
+      description:
+        locale === "fr"
+          ? "Master en Expert Lead Développeur Full Stack - Approfondissement en architecture logicielle, leadership technique et gestion de projets."
+          : "Master's degree in Expert Lead Full Stack Developer - In-depth study of software architecture, technical leadership and project management.",
+      type: "education",
+    },
+    {
+      id: "cda",
+      title: t("formation.cda"),
+      subtitle: locale === "fr" ? "Doranco, Bagnolet" : "Doranco, Bagnolet",
+      date: t("formation.cdadates"),
+      description:
+        locale === "fr"
+          ? "Bac +3 - Concepteur Développeur d'Applications : développement full stack, gestion de projets, conception logicielle."
+          : "Bachelor's level - Application Developer Designer: full stack development, project management, software design.",
+      type: "education",
+    },
+    {
+      id: "bts",
+      title: t("formation.bts"),
+      subtitle: locale === "fr" ? "Lycée Louis Armand, Paris 15" : "Lycée Louis Armand, Paris 15",
+      date: t("formation.btsdates"),
+      description:
+        locale === "fr"
+          ? "BTS Services Informatiques aux Organisations (SIO) - Spécialisation en développement et infrastructure IT."
+          : "BTS IT Services - Specialization in development and IT infrastructure.",
+      type: "education",
+    },
+    {
+      id: "bac",
+      title: t("formation.bac"),
+      subtitle: locale === "fr" ? "Lycée Van Gogh, Ermont" : "Lycée Van Gogh, Ermont",
+      date: t("formation.bacdates"),
+      description:
+        locale === "fr"
+          ? "Baccalauréat Général - Mathématiques & Sciences Économiques"
+          : "General Secondary School Diploma - Mathematics & Economics",
+      type: "education",
+    },
+  ];
 
   return (
     <div className={styles.wrapper}>
@@ -14,24 +62,7 @@ export default function FormationPage() {
       </section>
 
       <section className={styles.card}>
-        <div className={styles.list}>
-          <article className={styles.item}>
-            <h3>{t("formation.m1")}</h3>
-            <p className={styles.meta}>{t("formation.m1dates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.cda")}</h3>
-            <p className={styles.meta}>{t("formation.cdadates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.bts")}</h3>
-            <p className={styles.meta}>{t("formation.btsdates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.bac")}</h3>
-            <p className={styles.meta}>{t("formation.bacdates")}</p>
-          </article>
-        </div>
+        <Timeline items={timelineItems} />
       </section>
     </div>
   );
