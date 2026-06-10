@@ -91,22 +91,25 @@ export function createSortingRound(): GameWord[] {
   return words;
 }
 
-export function bubbleFloatStyle(id: string): Record<string, string | number> {
+export function bubbleFloatStyle(id: string, index = 0): Record<string, string | number> {
   let hash = 0;
   for (let i = 0; i < id.length; i++) {
     hash = (hash * 31 + id.charCodeAt(i)) % 9973;
   }
-  const slot = hash % 15;
-  const col = slot % 5;
-  const row = Math.floor(slot / 5);
+  const slot = index % 15;
+  const col = slot % 3;
+  const row = Math.floor(slot / 3);
+  const jitterX = (hash % 5) - 2;
+  const jitterY = ((hash * 7) % 5) - 2;
 
   return {
-    left: `${2 + col * 19 + (hash % 6)}%`,
-    top: `${4 + row * 28 + ((hash * 3) % 8)}%`,
-    ["--float-dur" as string]: `${3.2 + (hash % 3) * 0.8}s`,
-    ["--float-dur2" as string]: `${2.4 + (hash % 4) * 0.6}s`,
-    ["--float-x" as string]: `${22 + (hash % 28)}px`,
-    ["--float-y" as string]: `${16 + (hash % 24)}px`,
-    ["--float-rot" as string]: `${((hash % 7) - 3) * 1.2}deg`,
+    left: `${6 + col * 31 + jitterX}%`,
+    top: `${2 + row * 19 + jitterY}%`,
+    ["--float-dur" as string]: `${1.2 + (hash % 4) * 0.3}s`,
+    ["--float-dur2" as string]: `${0.85 + (hash % 3) * 0.25}s`,
+    ["--float-x" as string]: `${34 + (hash % 40)}px`,
+    ["--float-y" as string]: `${24 + (hash % 32)}px`,
+    ["--float-rot" as string]: `${((hash % 7) - 3) * 1.8}deg`,
+    animationDelay: `${-((hash % 24) / 10)}s`,
   };
 }

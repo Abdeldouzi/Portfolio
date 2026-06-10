@@ -231,11 +231,12 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                 {floating.map((word) => {
                   const isDragging = drag?.id === word.id;
                   if (isDragging) return null;
+                  const slotIndex = words.findIndex((w) => w.id === word.id);
                   return (
                     <div
                       key={word.id}
                       className={styles.bubble}
-                      style={bubbleFloatStyle(word.id)}
+                      style={bubbleFloatStyle(word.id, slotIndex)}
                       onPointerDown={(e) => onBubblePointerDown(e, word)}
                     >
                       <span className={styles.bubbleShine} aria-hidden />
