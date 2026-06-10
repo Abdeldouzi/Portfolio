@@ -37,9 +37,10 @@ const techs: Tech[] = [
   { name: "Stripe", img: "/icons/stripe.svg", category: "tools" },
   { name: "Render", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg", category: "tools" },
   { name: "WordPress", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg", category: "cms" },
-  { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", category: "cms" },
-  { name: "PlantUML", img: "/icons/plantuml.svg", category: "cms" },
-  { name: "Excalidraw", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", category: "cms" },
+  { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", category: "design", descriptionKey: "figmaDesc" },
+  { name: "PlantUML", img: "/icons/plantuml.svg", category: "design", descriptionKey: "plantumlDesc" },
+  { name: "Excalidraw", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", category: "design", descriptionKey: "excalidrawDesc" },
+  { name: "Looping", img: "/icons/looping.svg", category: "design", descriptionKey: "loopingDesc" },
 ];
 
 export default function CompetencesPage() {
