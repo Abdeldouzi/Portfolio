@@ -8,6 +8,7 @@
   padding: 20px;
   background: color-mix(in srgb, var(--background) 88%, transparent);
   backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
 }
 
 .panel {

@@ -8,7 +8,7 @@ export type GameWord = {
 };
 
 export const ROUND_SIZE = 10;
-export const CORRECT_PER_ROUND = 4;
+export const CORRECT_PER_ROUND = 5;
 export const PASS_SCORE = 3;
 
 export const GAME_WORD_POOL: GameWord[] = [

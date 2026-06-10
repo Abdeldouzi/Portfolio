@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { RichText } from "../RichText";
 import { useLocale } from "../../context/LocaleContext";
+import { useTheme } from "../../context/ThemeContext";
 import {
   countCorrectSelections,
   createGameRound,
@@ -23,6 +24,7 @@ type Feedback = "err" | "notEnough" | null;
 
 export function PortfolioGate({ children }: { children: React.ReactNode }) {
   const { t, locale } = useLocale();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [passed, setPassed] = useState(false);
   const [round, setRound] = useState<Round | null>(null);

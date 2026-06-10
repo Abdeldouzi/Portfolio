@@ -54,23 +54,6 @@ const LANGS: { code: Locale; flag: ReactNode; label: string }[] = [
   { code: "en", flag: <FlagGb />, label: "English" },
 ];
 
-function ThemeSunIcon() {
-  return (
-    <svg
-      className={styles.themeSvg}
-      viewBox="0 0 24 24"
-      width={20}
-      height={20}
-      aria-hidden
-    >
-      <path
-        fill="currentColor"
-        d="M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 000-2H2a1 1 0 000 2zm18 0h2a1 1 0 000-2h-2a1 1 0 000 2zM11 2v2a1 1 0 002 0V2a1 1 0 00-2 0zm0 18v2a1 1 0 002 0v-2a1 1 0 00-2 0zM5.99 4.58a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 001.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 001.41-1.41l-1.06-1.06zM4.58 18.01a1 1 0 10-1.41-1.41l1.06-1.06a1 1 0 101.41 1.41l-1.06 1.06zM19.42 5.99a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06z"
-      />
-    </svg>
-  );
-}
-
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLocale();
@@ -84,7 +67,7 @@ function ThemeToggle() {
       aria-label={isDark ? t("header.themeLight") : t("header.themeDark")}
       title={isDark ? t("header.themeLight") : t("header.themeDark")}
     >
-      <ThemeSunIcon />
+      <span className={styles.themeEmoji}>{isDark ? "☀️" : "🌙"}</span>
     </button>
   );
 }
