@@ -1,10 +1,8 @@
 .container {
-  position: absolute;
-  top: 24px;
-  right: 24px;
   display: flex;
-  gap: 8px;
-  z-index: 101;
+  gap: 6px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .themeToggle {
@@ -18,6 +16,7 @@
   background: var(--card-bg);
   cursor: pointer;
   transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
 .themeToggle:hover {
@@ -46,6 +45,7 @@
   transition: all 0.15s ease;
   min-width: 44px;
   height: 40px;
+  flex-shrink: 0;
 }
 
 .button:hover {
@@ -68,23 +68,15 @@
 }
 
 @media (max-width: 640px) {
-  .container {
-    top: 12px;
-    right: 12px;
-    gap: 4px;
-  }
-
-  .themeToggle {
+  .themeToggle,
+  .button {
     width: 36px;
+    min-width: 36px;
     height: 36px;
+    padding: 6px;
   }
 
   .themeIcon {
     font-size: 1rem;
-  }
-
-  .button {
-    padding: 6px 10px;
-    font-size: 0.8rem;
   }
 }

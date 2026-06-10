@@ -185,8 +185,10 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
         aria-modal="true"
         aria-labelledby="game-title"
       >
-        <LanguageSwitcher />
         <div className={`${styles.panel} ${phase === "won" ? styles.panelWon : ""}`}>
+          <div className={styles.panelToolbar}>
+            <LanguageSwitcher />
+          </div>
           {phase === "won" ? (
             <div className={styles.winScreen}>
               <p className={styles.winEmoji} aria-hidden>
