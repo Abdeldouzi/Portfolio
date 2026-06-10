@@ -52,31 +52,35 @@ const fr = {
     dadiTitle: "Développeur Web - Stage - Dadi Tech",
     dadiDates: "Mai 2025 - Juin 2025",
     dadi1:
-      "Développement **full stack** d'une plateforme éducative pour le système scolaire sénégalais (**Java**, **Spring Boot**, **React**).",
+      "Développé en **full stack** une plateforme éducative destinée au système scolaire sénégalais (**Java** / **Spring Boot**, **React**).",
     dadi2:
-      "Conception du **back-end** : gestion des élèves, enseignants, classes et années scolaires via des **API REST**.",
+      "Conçu et implémenté le **back-end** : gestion des élèves, enseignants, classes et années scolaires (**ajout**, **modification**, **suppression**) via une **API REST**.",
     dadi3:
-      "**Modélisation UML** des fonctionnalités avec **cas d'utilisation** admin, enseignant et élève.",
+      "**Modélisé** les fonctionnalités avec un diagramme de **cas d'utilisation UML** couvrant les rôles administrateur, enseignant et élève.",
     dadi4:
-      "Intégration de fonctionnalités d'administration (statistiques, établissements, niveaux d'étude) côté **front-end**.",
+      "Intégré les fonctionnalités d'administration (**statistiques**, gestion des **établissements**, **niveaux d'étude**) côté **front-end**.",
     dadi5:
-      "Mise en place de la base **SQL** et persistance des données avec **Spring Data JPA**.",
+      "Mis en place une base de données relationnelle **SQL** et assuré la persistance des données avec **Spring Data JPA**.",
+    dadi6:
+      "Adopté une **architecture hexagonale** (ports & adapters) et une approche **microservices**.",
+    dadi7:
+      "Travaillé en méthode **Agile Scrum** : daily meetings, sprint planning et suivi des tâches via **Jira**.",
     easyTitle: "Développeur Web - Stage - EasyFormers",
     easyDates: "Déc. 2023 - Fév. 2024",
     easy1:
-      "Conception et personnalisation d'un site **WordPress** (structure, design, intégration de contenu).",
+      "Conçu et personnalisé un **site vitrine** sous **WordPress** (structure, design, intégration de contenu).",
     easy2:
-      "Développement d'un site dynamique **HTML** / **CSS** / **PHP** connecté à une base **SQL**.",
+      "Développé un site dynamique **HTML** / **CSS** / **PHP** connecté à une base de données **SQL**.",
     easy3:
-      "Implémentation de fonctionnalités d'**inscription**, **connexion**, **messagerie interne** et **demande de devis**.",
+      "Implémenté les fonctionnalités d'**inscription**, **connexion**, **messagerie interne** et **demande de devis**.",
     boisTitle: "Développeur Web - Stage - Bois De Chauff 95",
     boisDates: "Mai 2023 - Juin 2023",
     bois1:
-      "Maintenance corrective et évolutive d'un site **e-commerce** sous **PrestaShop**.",
+      "Assuré la maintenance corrective et évolutive d'un site **e-commerce** sous **PrestaShop**.",
     bois2:
-      "Mise à jour des fiches produits, catégories et paramètres de livraison via le **back-office**.",
+      "Mis à jour les fiches produits, catégories et paramètres de livraison via le **back-office PrestaShop**.",
     bois3:
-      "Requêtes **SQL** directes (**MySQL**) pour corriger des anomalies de données.",
+      "Réalisé des requêtes **SQL** directement en base de données (**MySQL**) pour corriger des anomalies de données.",
   },
   skills: {
     title: "Compétences",
@@ -307,31 +311,35 @@ const en = {
     dadiTitle: "Web Developer - Internship - Dadi Tech",
     dadiDates: "May 2025 - Jun. 2025",
     dadi1:
-      "**Full stack** development of an educational platform for the Senegalese school system (**Java**, **Spring Boot**, **React**).",
+      "Built a **full stack** educational platform for the Senegalese school system (**Java** / **Spring Boot**, **React**).",
     dadi2:
-      "**Back-end** design: managing students, teachers, classes and school years via **REST APIs**.",
+      "Designed and implemented the **back-end**: student, teacher, class and school year management (**create**, **update**, **delete**) via a **REST API**.",
     dadi3:
-      "**UML modelling** of features with **use cases** for admin, teacher and student.",
+      "**Modeled** features with a **UML use case diagram** covering administrator, teacher and student roles.",
     dadi4:
-      "Integration of administration features (statistics, establishments, study levels) on the **front-end**.",
+      "Integrated administration features (**statistics**, **establishment** management, **study levels**) on the **front-end**.",
     dadi5:
-      "**SQL** database setup and data persistence with **Spring Data JPA**.",
+      "Set up a relational **SQL** database and ensured data persistence with **Spring Data JPA**.",
+    dadi6:
+      "Adopted **hexagonal architecture** (ports & adapters) and a **microservices** approach.",
+    dadi7:
+      "Worked with **Agile Scrum**: daily meetings, sprint planning and task tracking via **Jira**.",
     easyTitle: "Web Developer - Internship - EasyFormers",
     easyDates: "Dec. 2023 - Feb. 2024",
     easy1:
-      "Design and customization of a **WordPress** site (structure, design, content integration).",
+      "Designed and customized a **WordPress showcase** site (structure, design, content integration).",
     easy2:
-      "Development of a dynamic **HTML** / **CSS** / **PHP** site connected to a **SQL** database.",
+      "Developed a dynamic **HTML** / **CSS** / **PHP** site connected to a **SQL** database.",
     easy3:
-      "Implementation of **sign-up**, **login**, **internal messaging** and **quote request** features.",
+      "Implemented **sign-up**, **login**, **internal messaging** and **quote request** features.",
     boisTitle: "Web Developer - Internship - Bois De Chauff 95",
     boisDates: "May 2023 - Jun. 2023",
     bois1:
-      "Corrective and evolutionary maintenance of an **e-commerce** site on **PrestaShop**.",
+      "Provided corrective and evolutionary maintenance of a **PrestaShop e-commerce** site.",
     bois2:
-      "Updating product sheets, categories and delivery settings via the **back-office**.",
+      "Updated product sheets, categories and delivery settings via the **PrestaShop back-office**.",
     bois3:
-      "Direct **SQL** queries (**MySQL**) to fix data anomalies.",
+      "Ran direct **SQL** queries on the **MySQL** database to fix data anomalies.",
   },
   skills: {
     title: "Skills",
