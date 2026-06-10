@@ -76,6 +76,11 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
     setFeedback(null);
   };
 
+  const skipQuiz = () => {
+    localStorage.setItem(STORAGE_KEY, "true");
+    setPassed(true);
+  };
+
   const validate = () => {
     if (!round || phase === "won") return;
 
@@ -176,6 +181,13 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                       onClick={validate}
                     >
                       {t("game.validate")}
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.skipQuiz}
+                      onClick={skipQuiz}
+                    >
+                      {t("game.skipQuiz")}
                     </button>
                   </div>
                 </>

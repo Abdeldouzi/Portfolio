@@ -115,6 +115,31 @@
   outline-offset: 2px;
 }
 
+.skipQuiz {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--subtitle-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.skipQuiz:hover {
+  color: var(--brand-text);
+}
+
+.skipQuiz:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .feedback {
   margin: 0;
   font-size: 0.88rem;
