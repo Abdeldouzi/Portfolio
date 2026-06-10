@@ -1,46 +1,46 @@
 "use client";
 
-import Image from "next/image";
 import { useLocale } from "../../context/LocaleContext";
+import { TechStack, type Tech } from "../../components/TechStack/TechStack";
 import styles from "../inner-page.module.css";
 
-const skills = {
-  languages: [
-    { name: "Java", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-    { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-    { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "SQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-    { name: "NoSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  ],
-  frameworks: [
-    { name: "Spring Boot", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-    { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-    { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-    { name: "JUnit", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg" },
-    { name: "Bootstrap", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-  ],
-  databases: [
-    { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-    { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    { name: "phpMyAdmin", img: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/phpmyadmin.svg" },
-  ],
-  tools: [
-    { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-    { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-    { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-    { name: "Maven", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
-    { name: "Postman", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-    { name: "VS Code", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-  ],
-  cms: [
-    { name: "WordPress", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
-    { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-    { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
-  ],
-};
+const techs: Tech[] = [
+  { name: "Java", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "backend" },
+  { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", category: "frontend" },
+  { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", category: "frontend" },
+  { name: "PHP", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", category: "backend" },
+  { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", category: "frontend" },
+  { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", category: "frontend" },
+  { name: "SQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", category: "database" },
+  { name: "NoSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", category: "database" },
+  { name: "MySQL Workbench", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", category: "database" },
+  { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", category: "database" },
+  { name: "PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", category: "database" },
+  { name: "PhpMyAdmin", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", category: "database" },
+  { name: "Spring Boot", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", category: "backend" },
+  { name: "Spring Security", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg", category: "backend" },
+  { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", category: "frontend" },
+  { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", category: "frontend" },
+  { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", category: "backend" },
+  { name: "Express", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", category: "backend" },
+  { name: "JUnit", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg", category: "tools" },
+  { name: "Mockito", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "tools" },
+  { name: "Bootstrap", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", category: "frontend" },
+  { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", category: "tools" },
+  { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", category: "tools" },
+  { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", category: "tools" },
+  { name: "Maven", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg", category: "tools" },
+  { name: "Postman", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", category: "tools" },
+  { name: "VS Code", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", category: "tools" },
+  { name: "Trello", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg", category: "tools" },
+  { name: "Jira", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg", category: "tools" },
+  { name: "Stripe", img: "/icons/stripe.svg", category: "tools" },
+  { name: "Render", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg", category: "tools" },
+  { name: "WordPress", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg", category: "cms" },
+  { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", category: "cms" },
+  { name: "PlantUML", img: "/icons/plantuml.svg", category: "cms" },
+  { name: "Excalidraw", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", category: "cms" },
+];
 
 export default function CompetencesPage() {
   const { t } = useLocale();
@@ -53,63 +53,7 @@ export default function CompetencesPage() {
       </section>
 
       <section className={styles.card}>
-        <div className={styles.list}>
-          <article className={styles.item}>
-            <h3>{t("skills.languages")}</h3>
-            <div className={styles.skillsGrid}>
-              {skills.languages.map((skill) => (
-                <div key={skill.name} className={styles.skill}>
-                  <Image src={skill.img} alt={skill.name} width={50} height={50} />
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("skills.frameworks")}</h3>
-            <div className={styles.skillsGrid}>
-              {skills.frameworks.map((skill) => (
-                <div key={skill.name} className={styles.skill}>
-                  <Image src={skill.img} alt={skill.name} width={50} height={50} />
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("skills.databases")}</h3>
-            <div className={styles.skillsGrid}>
-              {skills.databases.map((skill) => (
-                <div key={skill.name} className={styles.skill}>
-                  <Image src={skill.img} alt={skill.name} width={50} height={50} />
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("skills.tools")}</h3>
-            <div className={styles.skillsGrid}>
-              {skills.tools.map((skill) => (
-                <div key={skill.name} className={styles.skill}>
-                  <Image src={skill.img} alt={skill.name} width={50} height={50} />
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("skills.cms")}</h3>
-            <div className={styles.skillsGrid}>
-              {skills.cms.map((skill) => (
-                <div key={skill.name} className={styles.skill}>
-                  <Image src={skill.img} alt={skill.name} width={50} height={50} />
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
+        <TechStack techs={techs} />
       </section>
     </div>
   );

@@ -1,10 +1,42 @@
 "use client";
 
 import { useLocale } from "../../context/LocaleContext";
+import { Timeline, type TimelineItem } from "../../components/Timeline/Timeline";
 import styles from "../inner-page.module.css";
 
 export default function FormationPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+
+  const timelineItems: TimelineItem[] = [
+    {
+      id: "m1",
+      title: t("formation.m1"),
+      subtitle: "ITIC Paris",
+      date: t("formation.m1dates"),
+      type: "education",
+    },
+    {
+      id: "cda",
+      title: t("formation.cda"),
+      subtitle: locale === "fr" ? "Doranco, Bagnolet" : "Doranco, Bagnolet",
+      date: t("formation.cdadates"),
+      type: "education",
+    },
+    {
+      id: "bts",
+      title: t("formation.bts"),
+      subtitle: locale === "fr" ? "Lycée Louis Armand, Paris 15" : "Lycée Louis Armand, Paris 15",
+      date: t("formation.btsdates"),
+      type: "education",
+    },
+    {
+      id: "bac",
+      title: t("formation.bac"),
+      subtitle: locale === "fr" ? "Lycée Van Gogh, Ermont" : "Lycée Van Gogh, Ermont",
+      date: t("formation.bacdates"),
+      type: "education",
+    },
+  ];
 
   return (
     <div className={styles.wrapper}>
@@ -14,24 +46,7 @@ export default function FormationPage() {
       </section>
 
       <section className={styles.card}>
-        <div className={styles.list}>
-          <article className={styles.item}>
-            <h3>{t("formation.m1")}</h3>
-            <p className={styles.meta}>{t("formation.m1dates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.cda")}</h3>
-            <p className={styles.meta}>{t("formation.cdadates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.bts")}</h3>
-            <p className={styles.meta}>{t("formation.btsdates")}</p>
-          </article>
-          <article className={styles.item}>
-            <h3>{t("formation.bac")}</h3>
-            <p className={styles.meta}>{t("formation.bacdates")}</p>
-          </article>
-        </div>
+        <Timeline items={timelineItems} />
       </section>
     </div>
   );
