@@ -105,8 +105,8 @@ export function bubbleFloatStyle(id: string, index = 0): Record<string, string |
   return {
     left: `${6 + col * 31 + jitterX}%`,
     top: `${2 + row * 19 + jitterY}%`,
-    ["--float-dur" as string]: `${1.2 + (hash % 4) * 0.3}s`,
-    ["--float-dur2" as string]: `${0.85 + (hash % 3) * 0.25}s`,
+    ["--float-dur" as string]: `${2.2 + (hash % 4) * 0.45}s`,
+    ["--float-dur2" as string]: `${1.6 + (hash % 3) * 0.4}s`,
     ["--float-x" as string]: `${34 + (hash % 40)}px`,
     ["--float-y" as string]: `${24 + (hash % 32)}px`,
     ["--float-rot" as string]: `${((hash % 7) - 3) * 1.8}deg`,

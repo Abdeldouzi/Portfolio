@@ -123,8 +123,8 @@
   user-select: none;
   touch-action: none;
   animation:
-    bubbleDrift var(--float-dur, 1.6s) ease-in-out infinite alternate,
-    bubbleBob var(--float-dur2, 1.1s) ease-in-out infinite alternate-reverse;
+    bubbleDrift var(--float-dur, 2.8s) ease-in-out infinite alternate,
+    bubbleBob var(--float-dur2, 2s) ease-in-out infinite alternate-reverse;
   will-change: transform;
 }
 
