@@ -64,12 +64,14 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
   const [drag, setDrag] = useState<DragState | null>(null);
   const [hoverVase, setHoverVase] = useState<GameCategory | null>(null);
   const [feedback, setFeedback] = useState<"wrong" | null>(null);
+  const [showSwipeHint, setShowSwipeHint] = useState(false);
 
   const vaseRefs = useRef<Record<GameCategory, HTMLDivElement | null>>({
     backend: null,
     frontend: null,
     database: null,
   });
+  const vasesRowRef = useRef<HTMLDivElement>(null);
 
   const total = words.length;
   const sortedCount = Object.keys(sorted).length;
@@ -93,6 +95,25 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
       startRound();
     }
   }, [mounted, passed, words.length, startRound]);
+
+  useEffect(() => {
+    if (phase !== "play" || words.length === 0) return;
+
+    const isMobile = window.matchMedia("(max-width: 640px)").matches;
+    if (!isMobile) return;
+
+    setShowSwipeHint(true);
+    const hideTimer = window.setTimeout(() => setShowSwipeHint(false), 3800);
+
+    const row = vasesRowRef.current;
+    const hideOnScroll = () => setShowSwipeHint(false);
+    row?.addEventListener("scroll", hideOnScroll, { passive: true });
+
+    return () => {
+      window.clearTimeout(hideTimer);
+      row?.removeEventListener("scroll", hideOnScroll);
+    };
+  }, [phase, words.length]);
 
   const skipGame = () => {
     localStorage.setItem(STORAGE_KEY, "true");
@@ -226,7 +247,20 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                 })}
               </div>
 
-              <div className={styles.vasesRow}>
+              <div className={styles.vasesSection}>
+                {showSwipeHint ? (
+                  <div className={styles.swipeHint} role="status" aria-live="polite">
+                    <div className={styles.swipeHintTrack} aria-hidden>
+                      <span className={styles.swipeHintFinger}>👆</span>
+                      <span className={styles.swipeHintArrows} aria-hidden>
+                        ‹ ›
+                      </span>
+                    </div>
+                    <p className={styles.swipeHintText}>{t("game.swipeVases")}</p>
+                  </div>
+                ) : null}
+
+                <div ref={vasesRowRef} className={styles.vasesRow}>
                 {VASE_ORDER.map((cat) => {
                   const inVase = words.filter((w) => sorted[w.id] === cat);
                   return (
@@ -260,6 +294,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                     </div>
                   );
                 })}
+                </div>
               </div>
 
               {feedback === "wrong" ? (
