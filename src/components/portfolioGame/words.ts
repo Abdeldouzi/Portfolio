@@ -7,7 +7,8 @@ export type GameWord = {
   labelEn: string;
 };
 
-export const SORT_PER_CATEGORY = 3;
+/** 5 compétences par vase = 15 bulles au total */
+export const SORT_PER_CATEGORY = 5;
 
 export const GAME_WORD_POOL: GameWord[] = [
   { id: "spring", category: "backend", labelFr: "Spring Boot", labelEn: "Spring Boot" },
@@ -20,6 +21,9 @@ export const GAME_WORD_POOL: GameWord[] = [
   { id: "middleware", category: "backend", labelFr: "Middleware", labelEn: "Middleware" },
   { id: "php", category: "backend", labelFr: "PHP", labelEn: "PHP" },
   { id: "server", category: "backend", labelFr: "Serveur", labelEn: "Server" },
+  { id: "springsec", category: "backend", labelFr: "Spring Security", labelEn: "Spring Security" },
+  { id: "graphql", category: "backend", labelFr: "GraphQL", labelEn: "GraphQL" },
+  { id: "jwt", category: "backend", labelFr: "JWT", labelEn: "JWT" },
   { id: "react", category: "frontend", labelFr: "React", labelEn: "React" },
   { id: "next", category: "frontend", labelFr: "Next.js", labelEn: "Next.js" },
   { id: "ts", category: "frontend", labelFr: "TypeScript", labelEn: "TypeScript" },
@@ -30,6 +34,9 @@ export const GAME_WORD_POOL: GameWord[] = [
   { id: "component", category: "frontend", labelFr: "Composant", labelEn: "Component" },
   { id: "responsive", category: "frontend", labelFr: "Responsive", labelEn: "Responsive" },
   { id: "tailwind", category: "frontend", labelFr: "Tailwind", labelEn: "Tailwind" },
+  { id: "bootstrap", category: "frontend", labelFr: "Bootstrap", labelEn: "Bootstrap" },
+  { id: "sass", category: "frontend", labelFr: "Sass", labelEn: "Sass" },
+  { id: "figma", category: "frontend", labelFr: "Figma", labelEn: "Figma" },
   { id: "mysql", category: "database", labelFr: "MySQL", labelEn: "MySQL" },
   { id: "mongo", category: "database", labelFr: "MongoDB", labelEn: "MongoDB" },
   { id: "sql", category: "database", labelFr: "SQL", labelEn: "SQL" },
@@ -41,9 +48,17 @@ export const GAME_WORD_POOL: GameWord[] = [
   { id: "orm", category: "database", labelFr: "ORM", labelEn: "ORM" },
   { id: "sqlite", category: "database", labelFr: "SQLite", labelEn: "SQLite" },
   { id: "index", category: "database", labelFr: "Index", labelEn: "Index" },
+  { id: "phpmyadmin", category: "database", labelFr: "PhpMyAdmin", labelEn: "PhpMyAdmin" },
+  { id: "mcd", category: "database", labelFr: "MCD", labelEn: "CDM" },
 ];
 
 export const VASE_ORDER: GameCategory[] = ["backend", "frontend", "database"];
+
+export const VASE_ICONS: Record<GameCategory, string> = {
+  backend: "⚙",
+  frontend: "✦",
+  database: "⬡",
+};
 
 function pickMany<T>(items: T[], count: number): T[] {
   const pool = [...items];
@@ -81,12 +96,17 @@ export function bubbleFloatStyle(id: string): Record<string, string | number> {
   for (let i = 0; i < id.length; i++) {
     hash = (hash * 31 + id.charCodeAt(i)) % 9973;
   }
+  const slot = hash % 15;
+  const col = slot % 5;
+  const row = Math.floor(slot / 5);
+
   return {
-    left: `${8 + (hash % 72)}%`,
-    top: `${6 + ((hash * 7) % 58)}%`,
-    ["--float-dur" as string]: `${16 + (hash % 10)}s`,
-    ["--float-delay" as string]: `${-(hash % 12)}s`,
-    ["--float-x" as string]: `${10 + (hash % 18)}px`,
-    ["--float-y" as string]: `${14 + (hash % 22)}px`,
+    left: `${2 + col * 19 + (hash % 6)}%`,
+    top: `${4 + row * 28 + ((hash * 3) % 8)}%`,
+    ["--float-dur" as string]: `${3.2 + (hash % 3) * 0.8}s`,
+    ["--float-dur2" as string]: `${2.4 + (hash % 4) * 0.6}s`,
+    ["--float-x" as string]: `${22 + (hash % 28)}px`,
+    ["--float-y" as string]: `${16 + (hash % 24)}px`,
+    ["--float-rot" as string]: `${((hash % 7) - 3) * 1.2}deg`,
   };
 }

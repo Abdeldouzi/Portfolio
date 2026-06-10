@@ -12,6 +12,7 @@ import { useLocale } from "../../context/LocaleContext";
 import {
   bubbleFloatStyle,
   createSortingRound,
+  VASE_ICONS,
   VASE_ORDER,
   type GameCategory,
   type GameWord,
@@ -203,6 +204,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
               <p className={styles.meta}>{progressLine}</p>
 
               <div className={styles.floatArena} aria-label={t("game.arenaLabel")}>
+                <div className={styles.arenaGlow} aria-hidden />
                 {floating.map((word) => {
                   const isDragging = drag?.id === word.id;
                   if (isDragging) return null;
@@ -213,7 +215,10 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                       style={bubbleFloatStyle(word.id)}
                       onPointerDown={(e) => onBubblePointerDown(e, word)}
                     >
-                      {locale === "en" ? word.labelEn : word.labelFr}
+                      <span className={styles.bubbleShine} aria-hidden />
+                      <span className={styles.bubbleLabel}>
+                        {locale === "en" ? word.labelEn : word.labelFr}
+                      </span>
                     </div>
                   );
                 })}
@@ -231,8 +236,14 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                       className={`${styles.vaseWrap} ${hoverVase === cat ? styles.vaseHover : ""}`}
                     >
                       <div className={`${styles.vase} ${styles[`vase_${cat}`]}`}>
-                        <div className={styles.vaseRim} />
+                        <div className={styles.vaseNeck} />
+                        <div className={styles.vaseRim}>
+                          <span className={styles.vaseIcon} aria-hidden>
+                            {VASE_ICONS[cat]}
+                          </span>
+                        </div>
                         <div className={styles.vaseBody}>
+                          <span className={styles.vaseGloss} aria-hidden />
                           <div className={styles.vaseLabel}>{t(VASE_LABEL_KEYS[cat])}</div>
                           <div className={styles.vaseItems}>
                             {inVase.map((w) => (
@@ -242,6 +253,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                             ))}
                           </div>
                         </div>
+                        <div className={styles.vaseFoot} />
                       </div>
                     </div>
                   );
@@ -274,9 +286,12 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
           }}
           aria-hidden
         >
-          {locale === "en"
-            ? words.find((w) => w.id === drag.id)?.labelEn
-            : words.find((w) => w.id === drag.id)?.labelFr}
+          <span className={styles.bubbleShine} aria-hidden />
+          <span className={styles.bubbleLabel}>
+            {locale === "en"
+              ? words.find((w) => w.id === drag.id)?.labelEn
+              : words.find((w) => w.id === drag.id)?.labelFr}
+          </span>
         </div>
       ) : null}
 
