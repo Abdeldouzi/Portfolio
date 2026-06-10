@@ -7,9 +7,7 @@ export type GameWord = {
   labelEn: string;
 };
 
-export const ROUND_SIZE = 10;
-export const CORRECT_PER_ROUND = 5;
-export const PASS_SCORE = 3;
+export const SORT_PER_CATEGORY = 3;
 
 export const GAME_WORD_POOL: GameWord[] = [
   { id: "spring", category: "backend", labelFr: "Spring Boot", labelEn: "Spring Boot" },
@@ -45,11 +43,7 @@ export const GAME_WORD_POOL: GameWord[] = [
   { id: "index", category: "database", labelFr: "Index", labelEn: "Index" },
 ];
 
-const CATEGORIES: GameCategory[] = ["backend", "database", "frontend"];
-
-function pickRandom<T>(items: T[]): T {
-  return items[Math.floor(Math.random() * items.length)]!;
-}
+export const VASE_ORDER: GameCategory[] = ["backend", "frontend", "database"];
 
 function pickMany<T>(items: T[], count: number): T[] {
   const pool = [...items];
@@ -61,30 +55,38 @@ function pickMany<T>(items: T[], count: number): T[] {
   return picked;
 }
 
-export function createGameRound(): { category: GameCategory; words: GameWord[] } {
-  const category = pickRandom(CATEGORIES);
-  const correctPool = GAME_WORD_POOL.filter((w) => w.category === category);
-  const distractorPool = GAME_WORD_POOL.filter((w) => w.category !== category);
-
-  const correctCount = Math.min(CORRECT_PER_ROUND, correctPool.length);
-  const distractorCount = ROUND_SIZE - correctCount;
-
-  const correct = pickMany(correctPool, correctCount);
-  const distractors = pickMany(distractorPool, distractorCount);
-  const words = [...correct, ...distractors];
-
+export function createSortingRound(): GameWord[] {
+  const backend = pickMany(
+    GAME_WORD_POOL.filter((w) => w.category === "backend"),
+    SORT_PER_CATEGORY,
+  );
+  const frontend = pickMany(
+    GAME_WORD_POOL.filter((w) => w.category === "frontend"),
+    SORT_PER_CATEGORY,
+  );
+  const database = pickMany(
+    GAME_WORD_POOL.filter((w) => w.category === "database"),
+    SORT_PER_CATEGORY,
+  );
+  const words = [...backend, ...frontend, ...database];
   for (let i = words.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [words[i], words[j]] = [words[j]!, words[i]!];
   }
-  return { category, words };
+  return words;
 }
 
-export function countCorrectSelections(
-  round: { category: GameCategory; words: GameWord[] },
-  selected: Set<string>,
-): number {
-  return round.words.filter(
-    (w) => selected.has(w.id) && w.category === round.category,
-  ).length;
+export function bubbleFloatStyle(id: string): Record<string, string | number> {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) % 9973;
+  }
+  return {
+    left: `${8 + (hash % 72)}%`,
+    top: `${6 + ((hash * 7) % 58)}%`,
+    ["--float-dur" as string]: `${16 + (hash % 10)}s`,
+    ["--float-delay" as string]: `${-(hash % 12)}s`,
+    ["--float-x" as string]: `${10 + (hash % 18)}px`,
+    ["--float-y" as string]: `${14 + (hash % 22)}px`,
+  };
 }
