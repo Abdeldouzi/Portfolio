@@ -605,6 +605,11 @@ html.dark .feedbackErr {
   visibility: hidden;
 }
 
+.gatedContent {
+  pointer-events: none;
+  user-select: none;
+}
+
 @media (min-width: 641px) {
   .swipeHint {
     display: none;

@@ -17,6 +17,7 @@ import {
   type GameCategory,
   type GameWord,
 } from "./words";
+import { isSearchBot } from "../../lib/is-search-bot";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./PortfolioGate.module.css";
 
@@ -78,6 +79,10 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
+    if (isSearchBot(navigator.userAgent)) {
+      setPassed(true);
+      return;
+    }
     setPassed(localStorage.getItem(STORAGE_KEY) === "true");
   }, []);
 
@@ -185,11 +190,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
     };
   }, [drag, words, placeBubble]);
 
-  if (!mounted) {
-    return <div className={styles.hidden}>{children}</div>;
-  }
-
-  if (passed) {
+  if (!mounted || passed) {
     return <>{children}</>;
   }
 
@@ -334,9 +335,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
         </div>
       ) : null}
 
-      <div aria-hidden className={styles.hidden}>
-        {children}
-      </div>
+      <div className={styles.gatedContent}>{children}</div>
     </>
   );
 }
