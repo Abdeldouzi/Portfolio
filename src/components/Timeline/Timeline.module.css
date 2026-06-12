@@ -129,7 +129,8 @@
   box-shadow: 0 12px 32px var(--card-shadow-hover);
 }
 
-.cardUpcoming {
+.cardUpcoming,
+.cardFeatured {
   background: linear-gradient(
     135deg,
     var(--card-bg) 0%,
@@ -213,6 +214,51 @@
   box-shadow: 0 0 0 8px color-mix(in srgb, var(--level-color) 22%, transparent);
 }
 
+.exp_fullstack {
+  --level-color: var(--accent);
+}
+
+.exp_web {
+  --level-color: #6eb5a8;
+}
+
+.exp_ecommerce {
+  --level-color: #d4a574;
+}
+
+.exp_fullstack.dot,
+.exp_fullstack.card,
+.exp_web.dot,
+.exp_web.card,
+.exp_ecommerce.dot,
+.exp_ecommerce.card {
+  border-left-color: var(--level-color);
+}
+
+.exp_fullstack.dot,
+.exp_web.dot,
+.exp_ecommerce.dot {
+  border-color: var(--level-color);
+}
+
+.exp_fullstack.dotActive,
+.exp_fullstack.dot:hover,
+.exp_web.dotActive,
+.exp_web.dot:hover,
+.exp_ecommerce.dotActive,
+.exp_ecommerce.dot:hover {
+  background: var(--level-color);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--level-color) 22%, transparent);
+}
+
+.cardExpandable {
+  cursor: pointer;
+}
+
+.cardExpanded {
+  cursor: default;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -292,6 +338,24 @@
   color: var(--subtitle-text);
   font-weight: 500;
   text-align: left;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--brand-text);
+  background: color-mix(in srgb, var(--level-color, var(--accent)) 12%, var(--card-bg));
+  border: 1px solid color-mix(in srgb, var(--level-color, var(--accent)) 28%, transparent);
 }
 
 .description {

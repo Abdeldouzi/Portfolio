@@ -25,6 +25,11 @@ export default function ExperiencePage() {
         .map((line) => `• ${line}`)
         .join("\n"),
       type: "experience",
+      experienceLevel: "fullstack",
+      badge: t("experience.badgeLatest"),
+      logo: "/experience/dadi-tech.png",
+      logoAlt: `${t("experience.logoAlt")} Dadi Tech`,
+      tags: ["Java", "Spring Boot", "React", "JPA", "Jira", "Agile"],
     },
     {
       id: "easy",
@@ -35,6 +40,10 @@ export default function ExperiencePage() {
         .map((line) => `• ${line}`)
         .join("\n"),
       type: "experience",
+      experienceLevel: "web",
+      logo: "/experience/easyformers.png",
+      logoAlt: `${t("experience.logoAlt")} EasyFormers`,
+      tags: ["WordPress", "PHP", "HTML", "CSS", "SQL"],
     },
     {
       id: "bois",
@@ -45,6 +54,10 @@ export default function ExperiencePage() {
         .map((line) => `• ${line}`)
         .join("\n"),
       type: "experience",
+      experienceLevel: "ecommerce",
+      logo: "/experience/bois-de-chauff.png",
+      logoAlt: `${t("experience.logoAlt")} Bois De Chauff 95`,
+      tags: ["PrestaShop", "MySQL", "E-commerce"],
     },
   ];
 
@@ -56,7 +69,7 @@ export default function ExperiencePage() {
       </section>
 
       <section className={styles.card}>
-        <Timeline items={timelineItems} />
+        <Timeline items={timelineItems} animated />
       </section>
     </div>
   );

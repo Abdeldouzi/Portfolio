@@ -51,6 +51,8 @@ const fr = {
   experience: {
     title: "Expérience professionnelle",
     subtitle: "Mes expériences en entreprise sur des projets web full stack.",
+    badgeLatest: "Plus récent",
+    logoAlt: "Logo de",
     dadiTitle: "Développeur Web - Stage - Dadi Tech",
     dadiDates: "Mai 2025 - Juin 2025",
     dadi1:
@@ -312,6 +314,8 @@ const en = {
   experience: {
     title: "Work experience",
     subtitle: "My internships and roles on full stack web projects.",
+    badgeLatest: "Most recent",
+    logoAlt: "Logo of",
     dadiTitle: "Web Developer - Internship - Dadi Tech",
     dadiDates: "May 2025 - Jun. 2025",
     dadi1:

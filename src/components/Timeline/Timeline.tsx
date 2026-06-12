@@ -5,6 +5,7 @@ import { RichText } from "../RichText";
 import styles from "./Timeline.module.css";
 
 export type EducationLevel = "bac" | "bts" | "bac3" | "master";
+export type ExperienceLevel = "fullstack" | "web" | "ecommerce";
 
 export type TimelineItem = {
   id: string;
@@ -14,9 +15,11 @@ export type TimelineItem = {
   description?: string;
   type: "education" | "experience";
   level?: EducationLevel;
+  experienceLevel?: ExperienceLevel;
   badge?: string;
   logo?: string;
   logoAlt?: string;
+  tags?: string[];
 };
 
 interface TimelineProps {
@@ -24,8 +27,11 @@ interface TimelineProps {
   animated?: boolean;
 }
 
+const MOBILE_QUERY = "(max-width: 768px)";
+
 export function Timeline({ items, animated = false }: TimelineProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const [visibleIds, setVisibleIds] = useState<Set<string>>(() =>
     animated ? new Set() : new Set(items.map((item) => item.id)),
   );
@@ -33,6 +39,14 @@ export function Timeline({ items, animated = false }: TimelineProps) {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!animated) return;
@@ -93,6 +107,10 @@ export function Timeline({ items, animated = false }: TimelineProps) {
     };
   }, [animated, items.length]);
 
+  const toggleItem = (id: string) => {
+    setSelectedId(selectedId === id ? null : id);
+  };
+
   return (
     <div className={`${styles.timeline} ${animated ? styles.timelineAnimated : ""}`}>
       <div className={styles.container} ref={containerRef}>
@@ -104,7 +122,13 @@ export function Timeline({ items, animated = false }: TimelineProps) {
 
         {items.map((item, index) => {
           const isVisible = visibleIds.has(item.id);
-          const levelClass = item.level ? styles[`level_${item.level}`] : "";
+          const levelClass = item.level
+            ? styles[`level_${item.level}`]
+            : item.experienceLevel
+              ? styles[`exp_${item.experienceLevel}`]
+              : "";
+          const isOpen = !isMobile || selectedId === item.id;
+          const hasDescription = Boolean(item.description);
 
           return (
             <div
@@ -119,11 +143,13 @@ export function Timeline({ items, animated = false }: TimelineProps) {
             >
               <div className={styles.marker}>
                 <button
+                  type="button"
                   className={`${styles.dot} ${levelClass} ${
-                    selectedId === item.id ? styles.dotActive : ""
+                    isMobile && selectedId === item.id ? styles.dotActive : ""
                   }`}
-                  onClick={() => setSelectedId(selectedId === item.id ? null : item.id)}
+                  onClick={() => isMobile && hasDescription && toggleItem(item.id)}
                   aria-label={item.title}
+                  tabIndex={isMobile && hasDescription ? 0 : -1}
                 />
                 {!animated && index < items.length - 1 ? <div className={styles.line} /> : null}
               </div>
@@ -131,8 +157,20 @@ export function Timeline({ items, animated = false }: TimelineProps) {
               <div className={styles.content}>
                 <div
                   className={`${styles.card} ${levelClass} ${
-                    selectedId === item.id ? styles.cardOpen : ""
-                  } ${item.badge ? styles.cardUpcoming : ""}`}
+                    isOpen ? styles.cardOpen : ""
+                  } ${item.badge ? styles.cardFeatured : ""} ${
+                    isMobile && hasDescription ? styles.cardExpandable : styles.cardExpanded
+                  }`}
+                  onClick={() => isMobile && hasDescription && toggleItem(item.id)}
+                  onKeyDown={(e) => {
+                    if (!isMobile || !hasDescription) return;
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleItem(item.id);
+                    }
+                  }}
+                  role={isMobile && hasDescription ? "button" : undefined}
+                  tabIndex={isMobile && hasDescription ? 0 : undefined}
                 >
                   <div className={styles.header}>
                     <div className={styles.titleRow}>
@@ -155,9 +193,19 @@ export function Timeline({ items, animated = false }: TimelineProps) {
 
                   <p className={styles.subtitle}>{item.subtitle}</p>
 
-                  {selectedId === item.id && item.description ? (
+                  {item.tags && item.tags.length > 0 ? (
+                    <div className={styles.tags}>
+                      {item.tags.map((tag) => (
+                        <span key={tag} className={styles.tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {isOpen && hasDescription ? (
                     <div className={styles.descriptionWrapper}>
-                      {item.description.split("\n").map((line, idx) => (
+                      {item.description!.split("\n").map((line, idx) => (
                         <p key={idx} className={styles.description}>
                           • <RichText text={line.replace(/^•\s*/, "")} />
                         </p>
@@ -165,14 +213,19 @@ export function Timeline({ items, animated = false }: TimelineProps) {
                     </div>
                   ) : null}
 
-                  <button
-                    className={styles.expandBtn}
-                    onClick={() => setSelectedId(selectedId === item.id ? null : item.id)}
-                    aria-expanded={selectedId === item.id}
-                    style={{ visibility: item.description ? "visible" : "hidden" }}
-                  >
-                    {selectedId === item.id ? "−" : "+"}
-                  </button>
+                  {isMobile && hasDescription ? (
+                    <button
+                      type="button"
+                      className={styles.expandBtn}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleItem(item.id);
+                      }}
+                      aria-expanded={selectedId === item.id}
+                    >
+                      {selectedId === item.id ? "−" : "+"}
+                    </button>
+                  ) : null}
                 </div>
               </div>
             </div>
