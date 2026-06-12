@@ -29,7 +29,6 @@ export default function ExperiencePage() {
       badge: t("experience.badgeLatest"),
       logo: "/experience/dadi-tech.png",
       logoAlt: `${t("experience.logoAlt")} Dadi Tech`,
-      tags: ["Java", "Spring Boot", "React", "JPA", "Jira", "Agile"],
     },
     {
       id: "easy",
@@ -43,7 +42,6 @@ export default function ExperiencePage() {
       experienceLevel: "web",
       logo: "/experience/easyformers.png",
       logoAlt: `${t("experience.logoAlt")} EasyFormers`,
-      tags: ["WordPress", "PHP", "HTML", "CSS", "SQL"],
     },
     {
       id: "bois",
@@ -57,7 +55,6 @@ export default function ExperiencePage() {
       experienceLevel: "ecommerce",
       logo: "/experience/bois-de-chauff.png",
       logoAlt: `${t("experience.logoAlt")} Bois De Chauff 95`,
-      tags: ["PrestaShop", "MySQL", "E-commerce"],
     },
   ];
 

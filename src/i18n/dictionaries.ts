@@ -122,6 +122,10 @@ const fr = {
     subtitle: "Sélection de mes projets les plus représentatifs.",
     logoAlt: "Logo",
     backAria: "Retour aux projets",
+    riadPitch:
+      "Application web de réservation pour un riad au Maroc, de l'analyse du besoin à la mise en production.",
+    gillaPitch:
+      "Gestion centralisée des tickets d'incidents scolaires, avec site d'administration et application Android.",
   },
   riad: {
     alt: "Riad Al Badun",
@@ -385,6 +389,10 @@ const en = {
     subtitle: "A selection of my most representative projects.",
     logoAlt: "Logo",
     backAria: "Back to projects",
+    riadPitch:
+      "Web booking app for a riad in Morocco, from requirements analysis to production deployment.",
+    gillaPitch:
+      "Centralised school incident ticket management with an admin website and Android app.",
   },
   riad: {
     alt: "Riad Al Badun",

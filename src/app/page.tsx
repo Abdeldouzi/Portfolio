@@ -89,7 +89,7 @@ export default function Home() {
     <div className={styles.wrapper}>
       <h1 className={styles.title}>
         Abdel-Karim Douzi |{" "}
-        <RotatingTypewriter lines={heroLines} typingSpeed={80} holdMs={5000} />
+        <RotatingTypewriter lines={heroLines} typingSpeed={55} holdMs={2800} />
       </h1>
 
       <div className={styles.actions}>
