@@ -19,6 +19,7 @@ import {
 } from "./words";
 import { isSearchBot } from "../../lib/is-search-bot";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { WinCelebration } from "./WinCelebration";
 import styles from "./PortfolioGate.module.css";
 
 const STORAGE_KEY = "portfolio-challenge-passed";
@@ -144,7 +145,7 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
         setFeedback(null);
       } else {
         setFeedback("wrong");
-        window.setTimeout(() => setFeedback(null), 1200);
+        window.setTimeout(() => setFeedback(null), 1000);
       }
     },
     [words.length, handleWin],
@@ -219,19 +220,18 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           {phase !== "won" ? (
-            feedback === "wrong" ? (
-              <p className={`${styles.gameHintTop} ${styles.feedbackErr}`}>{t("game.wrongDrop")}</p>
-            ) : (
-              <p className={styles.gameHintTop}>{t("game.hint")}</p>
-            )
+            <p className={styles.gameHintTop}>{t("game.hint")}</p>
           ) : null}
           {phase === "won" ? (
             <div className={styles.winScreen}>
-              <p className={styles.winEmoji} aria-hidden>
-                ✓
-              </p>
-              <h1 className={styles.winTitle}>{t("game.wellDone")}</h1>
-              <p className={styles.winMessage}>{t("game.success")}</p>
+              <WinCelebration />
+              <div className={styles.winContent}>
+                <p className={styles.winEmoji} aria-hidden>
+                  🎉
+                </p>
+                <h1 className={styles.winTitle}>{t("game.wellDone")}</h1>
+                <p className={styles.winMessage}>{t("game.success")}</p>
+              </div>
             </div>
           ) : (
             <>
@@ -243,6 +243,14 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
 
               <div className={styles.floatArena} aria-label={t("game.arenaLabel")}>
                 <div className={styles.arenaGlow} aria-hidden />
+                {feedback === "wrong" ? (
+                  <p className={styles.arenaFeedback} role="alert" aria-live="assertive">
+                    <span className={styles.arenaFeedbackEmoji} aria-hidden>
+                      ❌
+                    </span>
+                    <span>{t("game.wrongDrop")}</span>
+                  </p>
+                ) : null}
                 {floating.map((word) => {
                   const isDragging = drag?.id === word.id;
                   if (isDragging) return null;
