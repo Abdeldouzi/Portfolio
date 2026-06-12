@@ -515,6 +515,14 @@
   }
 }
 
+.gameHintTop {
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--subtitle-text);
+  text-align: left;
+}
+
 .hint {
   margin: 0 0 10px;
   font-size: 0.8rem;
@@ -732,9 +740,9 @@ html.dark .feedbackErr {
     padding: 4px 7px;
   }
 
-  .hint,
-  .feedback {
+  .gameHintTop {
     font-size: 0.78rem;
+    margin-bottom: 10px;
   }
 
   .skipQuiz {

@@ -218,6 +218,13 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
               <LanguageSwitcher />
             </div>
           </div>
+          {phase !== "won" ? (
+            feedback === "wrong" ? (
+              <p className={`${styles.gameHintTop} ${styles.feedbackErr}`}>{t("game.wrongDrop")}</p>
+            ) : (
+              <p className={styles.gameHintTop}>{t("game.hint")}</p>
+            )
+          ) : null}
           {phase === "won" ? (
             <div className={styles.winScreen}>
               <p className={styles.winEmoji} aria-hidden>
@@ -305,12 +312,6 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
                 })}
                 </div>
               </div>
-
-              {feedback === "wrong" ? (
-                <p className={`${styles.feedback} ${styles.feedbackErr}`}>{t("game.wrongDrop")}</p>
-              ) : (
-                <p className={styles.hint}>{t("game.hint")}</p>
-              )}
             </>
           )}
         </div>
