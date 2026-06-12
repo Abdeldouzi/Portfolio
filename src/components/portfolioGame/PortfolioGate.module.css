@@ -23,7 +23,17 @@
 }
 
 .panelToolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
   margin-bottom: 12px;
+  text-align: left;
+}
+
+.panelToolbarControls {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title {
@@ -525,25 +535,20 @@ html.dark .feedbackErr {
   color: #fbbf24;
 }
 
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .skipQuiz {
   width: 100%;
-  padding: 10px 14px;
+  padding: 4px 0;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   background: transparent;
   color: var(--subtitle-text);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   line-height: 1.4;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-align: left;
   transition: color 0.15s ease;
 }
 
@@ -728,7 +733,7 @@ html.dark .feedbackErr {
   }
 
   .skipQuiz {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 }
 

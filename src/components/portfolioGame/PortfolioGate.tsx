@@ -208,7 +208,14 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
       >
         <div className={`${styles.panel} ${phase === "won" ? styles.panelWon : ""}`}>
           <div className={styles.panelToolbar}>
-            <LanguageSwitcher />
+            {phase !== "won" ? (
+              <button type="button" className={styles.skipQuiz} onClick={skipGame}>
+                {t("game.skipQuiz")}
+              </button>
+            ) : null}
+            <div className={styles.panelToolbarControls}>
+              <LanguageSwitcher />
+            </div>
           </div>
           {phase === "won" ? (
             <div className={styles.winScreen}>
@@ -303,12 +310,6 @@ export function PortfolioGate({ children }: { children: React.ReactNode }) {
               ) : (
                 <p className={styles.hint}>{t("game.hint")}</p>
               )}
-
-              <div className={styles.actions}>
-                <button type="button" className={styles.skipQuiz} onClick={skipGame}>
-                  {t("game.skipQuiz")}
-                </button>
-              </div>
             </>
           )}
         </div>

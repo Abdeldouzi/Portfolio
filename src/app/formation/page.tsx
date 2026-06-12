@@ -1,13 +1,8 @@
 "use client";
 
 import { useLocale } from "../../context/LocaleContext";
-import { AnimatedCounter } from "../../components/AnimatedCounter/AnimatedCounter";
 import { Timeline, type TimelineItem } from "../../components/Timeline/Timeline";
 import innerStyles from "../inner-page.module.css";
-import styles from "./page.module.css";
-
-const FORMATION_DIPLOMAS = 4;
-const FORMATION_YEARS = 8;
 
 export default function FormationPage() {
   const { t, locale } = useLocale();
@@ -58,18 +53,9 @@ export default function FormationPage() {
 
   return (
     <div className={innerStyles.wrapper}>
-      <section className={`${innerStyles.card} ${styles.headerCard}`}>
+      <section className={innerStyles.card}>
         <h1 className={innerStyles.title}>{t("formation.title")}</h1>
         <p className={innerStyles.subtitle}>{t("formation.subtitle")}</p>
-        <p className={styles.counterLine}>
-          <AnimatedCounter value={FORMATION_DIPLOMAS} />
-          {t("formation.counterDiplomas")}
-          <span className={styles.counterSep} aria-hidden>
-            ·
-          </span>
-          <AnimatedCounter value={FORMATION_YEARS} />
-          {t("formation.counterYears")}
-        </p>
       </section>
 
       <section className={innerStyles.card}>

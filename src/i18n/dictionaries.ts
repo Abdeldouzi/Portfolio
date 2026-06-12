@@ -37,17 +37,15 @@ const fr = {
   formation: {
     title: "Formation",
     subtitle: "Mon parcours scolaire et académique.",
-    counterDiplomas: " diplômes",
-    counterYears: " ans de formation",
     badgeUpcoming: "À venir",
     logoAlt: "Logo de",
-    m1: "Master Expert Lead Développeur Full Stack - ITIC Paris",
+    m1: "Mastère Expert Lead Développeur Full Stack - ITIC Paris",
     m1dates: "Sept. 2026 - Sept. 2028",
     cda: "Bac +3 Concepteur Développeur d'Applications - Doranco, Bagnolet",
     cdadates: "Oct. 2024 - Juil. 2025",
     bts: "BTS Services Informatiques aux Organisations (SIO) - Lycée Louis Armand, Paris 15",
     btsdates: "Sept. 2022 - Juin 2024",
-    bac: "Baccalauréat Général - Maths & Sciences Économiques - Lycée Van Gogh, Ermont",
+    bac: "Baccalauréat général — Mathématiques, Sciences économiques et sociales",
     bacdates: "Sept. 2019 - Juin 2022",
   },
   experience: {
@@ -299,8 +297,6 @@ const en = {
   formation: {
     title: "Education",
     subtitle: "My academic path.",
-    counterDiplomas: " degrees",
-    counterYears: " years of education",
     badgeUpcoming: "Upcoming",
     logoAlt: "Logo of",
     m1: "Master Expert Lead Full Stack Developer - ITIC Paris",
@@ -310,7 +306,7 @@ const en = {
     bts:
       "BTS IT Services for Organisations (SIO) - Louis Armand high school, Paris 15",
     btsdates: "Sept. 2022 - Jun. 2024",
-    bac: "General Baccalaureate - Maths & Economics - Van Gogh high school, Ermont",
+    bac: "General Baccalaureate — Mathematics, Economics and Social Sciences",
     bacdates: "Sept. 2019 - Jun. 2022",
   },
   experience: {
