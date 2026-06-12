@@ -23,7 +23,7 @@ import { WinCelebration } from "./WinCelebration";
 import styles from "./PortfolioGate.module.css";
 
 const STORAGE_KEY = "portfolio-challenge-passed";
-const WIN_DELAY_MS = 1600;
+const WIN_DELAY_MS = 4000;
 
 type Phase = "play" | "won";
 type DragState = {

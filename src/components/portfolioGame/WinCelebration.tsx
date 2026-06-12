@@ -31,8 +31,8 @@ export function WinCelebration() {
       Array.from({ length: 40 }, (_, i) => ({
         id: i,
         left: `${Math.random() * 100}%`,
-        delay: `${Math.random() * 0.55}s`,
-        duration: `${1.4 + Math.random() * 0.9}s`,
+        delay: `${Math.random() * 0.9}s`,
+        duration: `${2.2 + Math.random() * 1.1}s`,
         color: COLORS[i % COLORS.length],
         rotation: `${Math.random() * 360}deg`,
         width: 5 + Math.random() * 5,
@@ -44,11 +44,11 @@ export function WinCelebration() {
 
   const fireworks = useMemo<FireworkBurst[]>(
     () =>
-      Array.from({ length: 6 }, (_, i) => ({
+      Array.from({ length: 8 }, (_, i) => ({
         id: i,
-        left: `${12 + i * 14 + Math.random() * 8}%`,
-        top: `${18 + Math.random() * 35}%`,
-        delay: `${i * 0.18}s`,
+        left: `${10 + i * 11 + Math.random() * 8}%`,
+        top: `${16 + Math.random() * 38}%`,
+        delay: `${i * 0.28}s`,
         color: COLORS[(i + 2) % COLORS.length],
       })),
     [],
