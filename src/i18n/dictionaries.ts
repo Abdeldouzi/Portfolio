@@ -37,6 +37,10 @@ const fr = {
   formation: {
     title: "Formation",
     subtitle: "Mon parcours scolaire et académique.",
+    counterDiplomas: " diplômes",
+    counterYears: " ans de formation",
+    badgeUpcoming: "À venir",
+    logoAlt: "Logo de",
     m1: "Master Expert Lead Développeur Full Stack - ITIC Paris",
     m1dates: "Sept. 2026 - Sept. 2028",
     cda: "Bac +3 Concepteur Développeur d'Applications - Doranco, Bagnolet",
@@ -295,6 +299,10 @@ const en = {
   formation: {
     title: "Education",
     subtitle: "My academic path.",
+    counterDiplomas: " degrees",
+    counterYears: " years of education",
+    badgeUpcoming: "Upcoming",
+    logoAlt: "Logo of",
     m1: "Master Expert Lead Full Stack Developer - ITIC Paris",
     m1dates: "Sept. 2026 - Sept. 2028",
     cda: "Bachelor +3 Application Developer & Designer - Doranco, Bagnolet",
